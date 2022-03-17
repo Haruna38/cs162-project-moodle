@@ -11,14 +11,41 @@
 #pragma once
 
 #include <string.h>
+#include <cstring>
+using namespace std;
 
-struct Student{};
-struct Class{};
-struct Course{};
-struct CourseInfo{};
-struct Courses{};
-struct score{};
-struct scoreBoard{};
+struct enrolledCourse{
+    string courseID;
+    enrolledCourse* nextEnrolledCourse;
+    enrolledCourse(string courseID_x) {
+        courseID = courseID_x;
+        nextEnrolledCourse = NULL;
+    }
+};
+
+struct enrolledCourses {
+    int sizeofList;
+    enrolledCourse* monitor;
+    enrolledCourses() {
+        sizeofList = 0;
+        monitor = NULL;
+    }
+    void addNewEnrolledCourse(string courseID_x) {
+        ++sizeofList;
+        enrolledCourse* newCourse = new enrolledCourse(courseID_x);
+        newCourse->nextEnrolledCourse = monitor->nextEnrolledCourse;
+        monitor->nextEnrolledCourse = newCourse;
+    }
+    void deallocate() {
+        while (sizeofList) {
+            --sizeofList;
+            enrolledCourse* j = monitor->nextEnrolledCourse;
+            monitor->nextEnrolledCourse = monitor->nextEnrolledCourse->nextEnrolledCourse;
+            delete j;
+        }
+        delete monitor;
+    }
+};
 
 struct Student {
     int No;
@@ -29,7 +56,7 @@ struct Student {
     string dateOfBirth;
     long long socialID;
     Student* inClassMonitor;
-    Courses myCourses;
+    enrolledCourses myCourses;
     Student* nextStudent;
     Student() {
         No = 0;
@@ -41,7 +68,7 @@ struct Student {
         socialID = 0;
         nextStudent = NULL;
         inClassMonitor = NULL;
-        myCourse = Courses();
+        myCourses = enrolledCourses();
     }
     Student(int No_x, long long studentID_x, string firstName_x, string lastName_x, bool gender_x, string dateOfBirth_x, long long socialID_x) {
         No = No_x;
@@ -53,7 +80,7 @@ struct Student {
         socialID = socialID_x;
         nextStudent = NULL;
         inClassMonitor = NULL;
-        myCourse = Courses();
+        myCourses = enrolledCourses();
     }
     Student(int No_x, long long studentID_x, string firstName_x, string lastName_x, bool gender_x, string dateOfBirth_x, long long socialID_x, Student* inClassMonitor_x) {
         No = No_x;
@@ -65,9 +92,9 @@ struct Student {
         socialID = socialID_x;
         nextStudent = NULL;
         inClassMonitor = inClassMonitor_x;
-        myCourse = Courses();
+        myCourses = enrolledCourses();
     }
-    Student(int No_x, long long studentID_x, string firstName_x, string lastName_x, bool gender_x, string dateOfBirth_x, long long socialID_x, Student* inClassMonitor_x, Courses myCourses_x) {
+    Student(int No_x, long long studentID_x, string firstName_x, string lastName_x, bool gender_x, string dateOfBirth_x, long long socialID_x, Student* inClassMonitor_x, enrolledCourses myCourses_x) {
         No = No_x;
         studentID = studentID_x;
         firstName = firstName_x;
@@ -77,9 +104,9 @@ struct Student {
         socialID = socialID_x;
         nextStudent = NULL;
         inClassMonitor = inClassMonitor_x;
-        myCourse = myCourses_x;
+        myCourses = myCourses_x;
     }
-}
+};
 
 struct Class {
     int sizeOfClass;
@@ -90,31 +117,88 @@ struct Class {
     }
     void addNewStudent(Student* newStudent) {
         ++sizeOfClass;
-        newStudent.inClassMonitor = monitor;
-        newStudent->next = monitor->next;
-        monitor->next = newStudent;
+        newStudent->inClassMonitor = monitor;
+        newStudent->nextStudent = monitor->nextStudent;
+        monitor->nextStudent = newStudent;
     }
     void addStudentToCourse(Student* newStudent) {
         ++sizeOfClass;
-        newStudent->next = monitor->next;
-        monitor->next = newStudent;
+        newStudent->nextStudent = monitor->nextStudent;
+        monitor->nextStudent = newStudent;
     }
     Student* getStudent(int studentID) {
         Student* cur = monitor;
-        while (cur->next != NULL) {
-            if (cur->next->studentID == studentID) {
-                return cur->next;
+        while (cur->nextStudent != NULL) {
+            if (cur->nextStudent->studentID == studentID) {
+                return cur->nextStudent;
             }
         }
         return NULL;
     }
     void deallocate() {
         while (sizeOfClass) {
-            Student* h = monitor->next;
-            monitor->next = monitor->next->next;
+            Student* h = monitor->nextStudent;
+            monitor->nextStudent = monitor->nextStudent->nextStudent;
             delete h;
+            --sizeOfClass;
         }
         delete monitor;
+    }
+};
+
+struct score{
+    Student* studentInform;
+    float totalMark;
+    float finalMark;
+    float midtermMark;
+    float otherMark;
+    score* nextScore;
+    score() {
+        studentInform = NULL;
+        totalMark = 0;
+        finalMark = 0;
+        midtermMark = 0;
+        otherMark = 0;
+        nextScore = NULL;
+    }
+    score(Student* studentInform_x, float totalMark_x, float finalMark_x, float midtermMark_x, float otherMark_x) {
+        studentInform = studentInform_x;
+        totalMark = totalMark_x;
+        finalMark = finalMark_x;
+        midtermMark = midtermMark_x;
+        otherMark = otherMark_x;
+        nextScore = NULL;
+    }
+};
+
+struct scoreBoard {
+    int sizeofBoard;
+    score* monitor;
+    scoreBoard() {
+        sizeofBoard = 0;
+        monitor = new score();
+    }
+    void addNewScore(score* newScore) {
+        ++sizeofBoard;
+        newScore->nextScore = monitor->nextScore;
+        monitor->nextScore = newScore;
+    }
+    score* getScoreOfStudent(int studentID) {
+        score* cur = monitor;
+        while (cur->nextScore != NULL) {
+            if (cur->nextScore->studentInform->studentID == studentID) {
+                return cur->nextScore;
+            }
+        }
+        return NULL;
+    }
+    void deallocate() {
+        while (sizeofBoard) {
+            score* h = monitor->nextScore;
+            monitor->nextScore=monitor->nextScore->nextScore;
+            delete h;
+            --sizeofBoard;
+        }
     }
 };
 
@@ -126,7 +210,7 @@ struct Course {
     int maxStudent;
     int day[2];
     int session[2];
-    Course* courseNext;
+    Course* nextCourse;
     scoreBoard courseScoreBoard;
     Class courseClass;
     Course() {
@@ -137,7 +221,7 @@ struct Course {
         maxStudent = 50;
         day[0] = day[1] = 0;
         session[0] = session[1] = 0;
-        courseNext = NULL;
+        nextCourse = NULL;
         courseScoreBoard = scoreBoard();
         courseClass = Class();
     }
@@ -151,7 +235,7 @@ struct Course {
         day[1] = day_x[1];
         session[0] = session_x[0];
         session[1] = session_x[1];
-        courseNext = NULL;
+        nextCourse = NULL;
         courseClass = Class();
         courseScoreBoard = scoreBoard();
     }
@@ -165,7 +249,7 @@ struct Course {
         day[1] = day_x[1];
         session[0] = session_x[0];
         session[1] = session_x[1];
-        courseNext = NULL;
+        nextCourse= NULL;
         courseClass = courseClass_x;
         courseScoreBoard = scoreBoard();
     }
@@ -179,17 +263,17 @@ struct Course {
         day[1] = day_x[1];
         session[0] = session_x[0];
         session[1] = session_x[1];
-        courseNext = NULL;
+        nextCourse = NULL;
         courseClass = courseClass_x;
         courseScoreBoard = courseScoreBoard_x;
     }
     void addStudentToCourse(Student* newStudent) {
         courseClass.addStudentToCourse(newStudent);
-        (newStudent->myCourses).addNewCourse(courseID, courseName, teacherName, numberofCredit, maxStudent, day, session);
+        (newStudent->myCourses).addNewEnrolledCourse(courseID);
     }
-}
+};
 
-struct Courses {
+struct Courses{
     int sizeofCourses;
     Course* monitor;
     Courses() {
@@ -198,20 +282,20 @@ struct Courses {
     }
     void addNewCourse(Course* newCourse) {
         ++sizeofCourses;
-        newCourse->next = monitor->next;
-        monitor->next = newCourse;
+        newCourse->nextCourse = monitor->nextCourse;
+        monitor->nextCourse = newCourse;
     }
     void addNewCourse(string courseID_x, string courseName_x, string teacherName_x, int numberofCredit_x, int maxStudent_x, int day_x[], int session_x[]) {
-        Course* newCourse = Course(courseID_x, courseName_x, teacherName_x, numberofCredit_x, maxStudent_x, day_x, session_x);
+        Course* newCourse = new Course(courseID_x, courseName_x, teacherName_x, numberofCredit_x, maxStudent_x, day_x, session_x);
         ++sizeofCourses;
-        newCourse->next = monitor->next;
-        monitor->next = newCourse;
+        newCourse->nextCourse = monitor->nextCourse;
+        monitor->nextCourse = newCourse;
     }
     Course* getCourse(string courseID) {
         Course* cur = monitor;
-        while (cur->next != NULL) {
-            if (cur->next->courseID == courseID) {
-                return cur->next;
+        while (cur->nextCourse != NULL) {
+            if (cur->nextCourse->courseID == courseID) {
+                return cur->nextCourse;
             }
         }
         return NULL;
@@ -219,62 +303,24 @@ struct Courses {
     void deleteCourse(string courseID_x) {
         --sizeofCourses;
         Course* cur = monitor;
-        while (cur->next != NULL) {
-            if (cur->next->courseID == courseID_x) {
-                Course* t = cur->next;
-                cur->next=cur->next->next;
+        while (cur->nextCourse != NULL) {
+            if (cur->nextCourse->courseID == courseID_x) {
+                Course* t = cur->nextCourse;
+                cur->nextCourse = cur->nextCourse->nextCourse;
                 delete t;
                 break;
             }
         }
     }
     void deallocate() {
-        while (sizeOfCourses) {
-            Course* h = monitor->next;
-            monitor->next = monitor->next->next;
+        while (sizeofCourses) {
+            Course* h = monitor->nextCourse;
+            monitor->nextCourse = monitor->nextCourse->nextCourse;
             delete h;
+            sizeofCourses--;
         }
         delete monitor;
     }
-}
-
-struct score{
-    Student* studentInform;
-    float totalMark;
-    float finalMark;
-    float midtermMark;
-    float otherMark;
-    score* nextScore;
-    score(Student* studentInform_x, float totalMark_x, float finalMark_x, float midtermMark_x, float otherMark_x) {
-        studentInform = studentInform_x;
-        totalMark = totalMark_x;
-        finalMark = finalMark_x;
-        midtermMark = midtermMark_x;
-        otherMark = otherMark_x;
-        nextScore = NULL;
-    }
 };
-
-struct scoreBoard() {
-    int sizeofBoard;
-    score* monitor;
-    scoreBoard() {
-        sizeofBoard = 0;
-        monitor = new score();
-    }
-    void addNewScore(score* newScore) {
-        newScore->nextScore = monitor->nextScore;
-        monitor->nextScore = newScore;
-    }
-    score* getScoreOfStudent(int studentID) {
-        score* cur = monitor;
-        while (cur->next != NULL) {
-            if (cur->next->studentInform->studentID == studentID) {
-                return cur->next;
-            }
-        }
-        return NULL;
-    }
-}
 
 #endif /* structure_h */
