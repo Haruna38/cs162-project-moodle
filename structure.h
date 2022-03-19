@@ -8,16 +8,14 @@
 #ifndef structure_h
 #define structure_h
 
-#pragma once
-
-#include <string.h>
+#include <string>
 #include <cstring>
 using namespace std;
 
 struct enrolledCourse{
-    string courseID;
+    string* courseID;
     enrolledCourse* nextEnrolledCourse;
-    enrolledCourse(string courseID_x) {
+    enrolledCourse(string* courseID_x) {
         courseID = courseID_x;
         nextEnrolledCourse = NULL;
     }
@@ -30,7 +28,7 @@ struct enrolledCourses {
         sizeofList = 0;
         monitor = NULL;
     }
-    void addNewEnrolledCourse(string courseID_x) {
+    void addNewEnrolledCourse(string* courseID_x) {
         ++sizeofList;
         enrolledCourse* newCourse = new enrolledCourse(courseID_x);
         newCourse->nextEnrolledCourse = monitor->nextEnrolledCourse;
@@ -269,7 +267,7 @@ struct Course {
     }
     void addStudentToCourse(Student* newStudent) {
         courseClass.addStudentToCourse(newStudent);
-        (newStudent->myCourses).addNewEnrolledCourse(courseID);
+        (newStudent->myCourses).addNewEnrolledCourse(&courseID);
     }
 };
 
@@ -323,4 +321,6 @@ struct Courses{
     }
 };
 
+int getCurrentSchoolYear();
+int getSemester();
 #endif /* structure_h */
