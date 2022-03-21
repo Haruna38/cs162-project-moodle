@@ -2,8 +2,9 @@
 //  structure.h
 //  structure
 //
-//  Created by Hoang The Anh.
-//
+//  Created by Hoang The Anh on 17/03/2022.
+//  Edited by Hoang The Anh on 19/03/2022.
+//  Edited by Hoang The Anh on 21/03/2022.
 
 #ifndef structure_h
 #define structure_h
@@ -208,6 +209,8 @@ struct Course {
     int maxStudent;
     int day[2];
     int session[2];
+    int schoolyear;
+    int semester;
     Course* nextCourse;
     scoreBoard courseScoreBoard;
     Class courseClass;
@@ -223,7 +226,7 @@ struct Course {
         courseScoreBoard = scoreBoard();
         courseClass = Class();
     }
-    Course(string courseID_x, string courseName_x, string teacherName_x, int numberofCredit_x, int maxStudent_x, int day_x[], int session_x[]) {
+    Course(string courseID_x, string courseName_x, string teacherName_x, int numberofCredit_x, int maxStudent_x, int day_x[], int session_x[], int schoolyear_x, int semester_x) {
         courseID = courseID_x;
         courseName = courseName_x;
         teacherName = teacherName_x;
@@ -233,11 +236,13 @@ struct Course {
         day[1] = day_x[1];
         session[0] = session_x[0];
         session[1] = session_x[1];
+        schoolyear = schoolyear_x;
+        semester = semester_x;
         nextCourse = NULL;
         courseClass = Class();
         courseScoreBoard = scoreBoard();
     }
-    Course(string courseID_x, string courseName_x, string teacherName_x, int numberofCredit_x, int maxStudent_x, int day_x[], int session_x[], Class courseClass_x) {
+    Course(string courseID_x, string courseName_x, string teacherName_x, int numberofCredit_x, int maxStudent_x, int day_x[], int session_x[], int schoolyear_x, int semester_x, Class courseClass_x) {
         courseID = courseID_x;
         courseName = courseName_x;
         teacherName = teacherName_x;
@@ -247,11 +252,13 @@ struct Course {
         day[1] = day_x[1];
         session[0] = session_x[0];
         session[1] = session_x[1];
+        schoolyear = schoolyear_x;
+        semester = semester_x;
         nextCourse= NULL;
         courseClass = courseClass_x;
         courseScoreBoard = scoreBoard();
     }
-    Course(string courseID_x, string courseName_x, string teacherName_x, int numberofCredit_x, int maxStudent_x, int day_x[], int session_x[], Class courseClass_x, scoreBoard courseScoreBoard_x) {
+    Course(string courseID_x, string courseName_x, string teacherName_x, int numberofCredit_x, int maxStudent_x, int day_x[], int session_x[], int schoolyear_x, int semester_x, Class courseClass_x, scoreBoard courseScoreBoard_x) {
         courseID = courseID_x;
         courseName = courseName_x;
         teacherName = teacherName_x;
@@ -261,6 +268,8 @@ struct Course {
         day[1] = day_x[1];
         session[0] = session_x[0];
         session[1] = session_x[1];
+        schoolyear = schoolyear_x;
+        semester = semester_x;
         nextCourse = NULL;
         courseClass = courseClass_x;
         courseScoreBoard = courseScoreBoard_x;
@@ -283,8 +292,8 @@ struct Courses{
         newCourse->nextCourse = monitor->nextCourse;
         monitor->nextCourse = newCourse;
     }
-    void addNewCourse(string courseID_x, string courseName_x, string teacherName_x, int numberofCredit_x, int maxStudent_x, int day_x[], int session_x[]) {
-        Course* newCourse = new Course(courseID_x, courseName_x, teacherName_x, numberofCredit_x, maxStudent_x, day_x, session_x);
+    void addNewCourse(string courseID_x, string courseName_x, string teacherName_x, int numberofCredit_x, int maxStudent_x, int day_x[], int session_x[], int schoolyear_x, int semester_x) {
+        Course* newCourse = new Course(courseID_x, courseName_x, teacherName_x, numberofCredit_x, maxStudent_x, day_x, session_x, schoolyear_x, semester_x);
         ++sizeofCourses;
         newCourse->nextCourse = monitor->nextCourse;
         monitor->nextCourse = newCourse;
@@ -320,7 +329,4 @@ struct Courses{
         delete monitor;
     }
 };
-
-int getCurrentSchoolYear();
-int getSemester();
 #endif /* structure_h */
