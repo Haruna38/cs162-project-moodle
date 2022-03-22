@@ -4,6 +4,7 @@
 //
 //  Created by Hoang The Anh on 19/03/2022.
 //  Edited by Hoang The Anh on 21/03/2022.
+//  Edited by Hoang The Anh on 22/03/2022.
 
 #ifndef scoreboard_function_hpp
 #define scoreboard_function_hpp
@@ -13,5 +14,6 @@
 
 void exportStudentInCourse(Course* someRandomCourse);
 void importScore(Course*& course, string filename);
+void seeScoreOfCourse(Course* course);
 
 #endif /* scoreboard_function_hpp */
