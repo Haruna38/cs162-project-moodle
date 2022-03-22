@@ -3,6 +3,7 @@
 //  structure
 //
 //  Created by Hoang The Anh on 19/03/2022.
+//  Edited by Hoang The Anh on 21/03/2022.
 //  Edited by Hoang The Anh on 22/03/2022.
 
 #include "scoreboard_function.hpp"
@@ -47,4 +48,15 @@ void importScore(Course* &course, string filename) {
         course->courseScoreBoard.addNewScore(newScore);
     }
     fin.close();
+}
+
+void seeScoreOfCourse(Course* course) {
+    scoreBoard thisCourseScoreBoard = course->courseScoreBoard;
+    score* cur = thisCourseScoreBoard.monitor;
+    int index = 1;
+    while (cur->nextScore != NULL) {
+        cur = cur->nextScore;
+        std::cout << index << " | " << cur->studentInform->lastName << " | " << cur->totalMark << " | " << cur->finalMark << " | " << cur->midtermMark << " | " << cur->otherMark << "\n";
+        index++;
+    }
 }
