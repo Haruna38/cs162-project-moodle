@@ -56,7 +56,7 @@ void seeScoreOfCourse(Course* course) {
     int index = 1;
     while (cur->nextScore != NULL) {
         cur = cur->nextScore;
-        std::cout << index << " | " << cur->studentInform->lastName << " | " << cur->totalMark << " | " << cur->finalMark << " | " << cur->midtermMark << " | " << cur->otherMark << "\n";
+        //std::cout << index << " | " << cur->studentInform->lastName << " | " << cur->totalMark << " | " << cur->finalMark << " | " << cur->midtermMark << " | " << cur->otherMark << "\n"; -- Waiting for UI/UX
         index++;
     }
 }
