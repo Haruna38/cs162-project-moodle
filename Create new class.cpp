@@ -1,30 +1,39 @@
-#include<iostream> 
-#include<fstream> 
+//Created by DInh Quang Hieu 
+///Started 17/03/2022
+//Edited 22/03/2022
+#include <iostream>
+#include"class.h"
 #include<string.h>
-#include<cstring>
 #include<string>
-#include"Function.h"
+#include<fstream>
 using namespace std;
-void createNewClass() {
-	string newclass="";
+void createClassList(Class*& pClass , int n) {
+	ifstream fin;
+	fin.open("Class.txt");
+    pClass = new Class;
+    Class *pCur = pClass;
+    for (int i = 0; i < n && pCur!= nullptr; i++) {
+	fin >> pCur->name;
+        pCur = pCur->next;
+    }
+}
+
+void createNewClass(Class *&pClass) {
+	pClass->name = "";
 	char ans[10];
 	bool tmp = true;
 	ofstream fout;
 	fout.open("Class.txt");
-	while (tmp!= false) {
+	while (tmp != false) {
 		cout << "Input your class's name : ";
 		cin.get();
-		getline(cin,newclass , '\n');
-		fout << newclass;
+		getline(cin, pClass->name, '\n');
+		fout << pClass->name;
 		cout << "You want to create a new class again ?" << endl;
 		cout << "If yes input Y , no input N : ";
-		/*cin.get();*/
-		//cin.ignore(100, '\n');
 		cin.getline(ans, 10, '\n');
-		/*cout << ans[0];
-		cout << strlen(ans);*/
 		if (ans == "Y") tmp = true;
-		else if (!strcmp(ans,"N")) {
+		else if (!strcmp(ans, "N")) {
 			tmp = false;
 		}
 	}
