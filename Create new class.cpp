@@ -18,11 +18,12 @@ void createClassList(Class*& pClass , int n) {
     }
 }
 
-void createNewClass(Class *&pClass) {
+void createNewClass(Class *&pClass, int &n) {
 	pClass->name = "";
 	char ans[10];
 	bool tmp = true;
 	ofstream fout;
+	n = 1;
 	fout.open("Class.txt");
 	while (tmp != false) {
 		cout << "Input your class's name : ";
@@ -32,10 +33,14 @@ void createNewClass(Class *&pClass) {
 		cout << "You want to create a new class again ?" << endl;
 		cout << "If yes input Y , no input N : ";
 		cin.getline(ans, 10, '\n');
-		if (ans == "Y") tmp = true;
+		if (ans == "Y") {
+			tmp = true;
+			n++;
+		}
 		else if (!strcmp(ans, "N")) {
 			tmp = false;
 		}
 	}
 	fout.close();
 }
+
