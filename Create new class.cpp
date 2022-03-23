@@ -1,29 +1,30 @@
 //Created by DInh Quang Hieu 
 ///Started 17/03/2022
 //Edited 22/03/2022
+//Edited 23/03/2022
 #include <iostream>
 #include"class.h"
 #include<string.h>
 #include<string>
 #include<fstream>
 using namespace std;
-void createClassList(Class*& pClass , int n) {
+void createClassList(Class*& pClass , int numsClass) {
 	ifstream fin;
 	fin.open("Class.txt");
     pClass = new Class;
     Class *pCur = pClass;
-    for (int i = 0; i < n && pCur!= nullptr; i++) {
+    for (int i = 0; i < numsClass && pCur != nullptr; i++) {
 	fin >> pCur->name;
         pCur = pCur->next;
     }
 }
 
-void createNewClass(Class *&pClass, int &n) {
+void createNewClass(Class *&pClass, int &numsClass) {
 	pClass->name = "";
 	char ans[10];
 	bool tmp = true;
 	ofstream fout;
-	n = 1;
+	numsClass = 1;
 	fout.open("Class.txt");
 	while (tmp != false) {
 		cout << "Input your class's name : ";
@@ -35,7 +36,7 @@ void createNewClass(Class *&pClass, int &n) {
 		cin.getline(ans, 10, '\n');
 		if (ans == "Y") {
 			tmp = true;
-			n++;
+			numsClass++;
 		}
 		else if (!strcmp(ans, "N")) {
 			tmp = false;
