@@ -12,7 +12,7 @@ int getCurrentSchoolYear() {
     std::ifstream fin;
     fin.open("schoolyear.txt");
     int schoolyear_result = 0;
-    while (fin.eof()) {
+    while (!fin.eof()) {
         fin >> schoolyear_result;
     }
     fin.close();
