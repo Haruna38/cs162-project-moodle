@@ -5,6 +5,7 @@
 //  Created by Hoang The Anh on 17/03/2022.
 //  Edited by Hoang The Anh on 19/03/2022.
 //  Edited by Hoang The Anh on 21/03/2022.
+//  Edited by Hoang The Anh on 22/03/2022.
 
 #ifndef structure_h
 #define structure_h
@@ -108,6 +109,7 @@ struct Student {
 };
 
 struct Class {
+    string ClassID;
     int sizeOfClass;
     Student* monitor;
     Class() {
@@ -182,7 +184,7 @@ struct scoreBoard {
         newScore->nextScore = monitor->nextScore;
         monitor->nextScore = newScore;
     }
-    score* getScoreOfStudent(int studentID) {
+    score* getScoreOfStudent(long long studentID) {
         score* cur = monitor;
         while (cur->nextScore != NULL) {
             if (cur->nextScore->studentInform->studentID == studentID) {
