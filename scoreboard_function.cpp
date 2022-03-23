@@ -5,6 +5,7 @@
 //  Created by Hoang The Anh on 19/03/2022.
 //  Edited by Hoang The Anh on 21/03/2022.
 //  Edited by Hoang The Anh on 22/03/2022.
+// Edited by Hoang The Anh on 23/03/2022.
 
 #include "scoreboard_function.hpp"
 #include "structure.h"
@@ -59,4 +60,12 @@ void seeScoreOfCourse(Course* course) {
         //std::cout << index << " | " << cur->studentInform->lastName << " | " << cur->totalMark << " | " << cur->finalMark << " | " << cur->midtermMark << " | " << cur->otherMark << "\n"; -- Waiting for UI/UX
         index++;
     }
+}
+
+void updateStudentResult(Course*& course, int studentID, float totalMark_x, float finalMark_x, float midtermMark_x, float otherMark_x) {
+    score* studentFound = course->courseScoreBoard.getScoreOfStudent(studentID);
+    if (totalMark_x != -1) studentFound->totalMark = totalMark_x;
+    if (finalMark_x != -1) studentFound->finalMark = finalMark_x;
+    if (midtermMark_x != -1) studentFound->midtermMark = midtermMark_x;
+    if (otherMark_x != -1) studentFound->otherMark = otherMark_x;
 }
