@@ -15,5 +15,6 @@
 void exportStudentInCourse(Course* someRandomCourse);
 void importScore(Course*& course, string filename);
 void seeScoreOfCourse(Course* course);
+void updateStudentResult(Course*& course, int studentID, float totalMark_x, float finalMark_x, float midtermMark_x, float otherMark_x);
 
 #endif /* scoreboard_function_hpp */
