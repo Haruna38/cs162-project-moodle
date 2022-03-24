@@ -1,6 +1,8 @@
-# cs162-project-moodle
+# CS162_PROJECT_MOODLE
+
 CS162 - Programming Techniques – Final Project – A Course Registration System
 Class: 21APCS1-2, 21CLC09-10
+
 There are 2 types of users in the system.
 Academic staff members, for example, Ms. Le Thi Anh Thao, Ms. Nguyen Thi Minh Phuc, Ms. Hoang Thanh Tu…
 Students: in APCS, CLC, VP…
