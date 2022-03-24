@@ -5,4 +5,5 @@
 using namespace std;
 
 void createSemester();
-void gotoXY(int x, int y);
+void createRegistration();
+void addCourse(School HCMUS);
