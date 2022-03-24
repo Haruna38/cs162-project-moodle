@@ -69,3 +69,32 @@ void updateStudentResult(Course*& course, int studentID, float totalMark_x, floa
     if (midtermMark_x != -1) studentFound->midtermMark = midtermMark_x;
     if (otherMark_x != -1) studentFound->otherMark = otherMark_x;
 }
+
+void viewClassScore(Class someRandomClass, Courses allCourses) {
+    int thisSchoolYear = getCurrentSchoolYear();
+    int thisSemester = getSemester();
+    Student* cur = someRandomClass.monitor;
+    int index1 = 1;
+    while (cur->nextStudent != NULL) {
+        cur = cur->nextStudent;
+        enrolledCourses thisEnrolledCourses = cur->myCourses;
+        enrolledCourse* thisEnrolledCourse = thisEnrolledCourses.monitor;
+        //cout << index1 << ". " << cur->studentID << " - " << cur->firstName << " " << cur->lastName << "\n";
+        index1++;
+        int index2 = 0;
+        double GPA1 = 0, GPA2 = 0;
+        while (thisEnrolledCourse->nextEnrolledCourse != NULL) {
+            thisEnrolledCourse = thisEnrolledCourse->nextEnrolledCourse;
+            Course* thisCourse = allCourses.getCourse((*(thisEnrolledCourse->courseID)));
+            score* thisScore = thisCourse->courseScoreBoard.getScoreOfStudent(cur->studentID);
+            if (thisCourse->schoolyear == thisSchoolYear && thisCourse->semester == thisSemester) {
+                index2++;
+                //std::cout << index2 << " | " << thisCourse->courseName << " | " << thisScore->otherMark << " | " << thisScore->midtermMark << " | " << thisScore->finalMark << " | " << thisScore->totalMark << "\n";
+                GPA1 += thisScore->totalMark;
+            }
+            GPA2 += thisScore->totalMark;
+        }
+        //cout << "GPA this semester: " << GPA1 / index2;
+        //cout << "CGPA: " << GPA2 / thisEnrolledCourses.sizeofList;
+    }
+}
