@@ -111,29 +111,34 @@ struct Student {
 
 struct Class {
     string classID;
+    int schoolyear;
     int sizeOfClass;
     Student* monitor;
     Class* nextClass;
     Class() {
         classID = "";
+        schoolyear = 0;
         sizeOfClass = 0;
         monitor = new Student();
         nextClass = NULL;
     }
     Class(string classID_x) {
         classID = classID_x;
+        schoolyear = 0;
         sizeOfClass = 0;
         monitor = new Student();
         nextClass = NULL;
     }
     Class(string classID_x, int sizeOfClass_x) {
         classID = classID_x;
+        schoolyear = 0;
         sizeOfClass = sizeOfClass_x;
         monitor = new Student();
         nextClass = NULL;
     }
     Class(string classID_x, int sizeOfClass_x, Student* monitor_x) {
         classID = classID_x;
+        schoolyear = 0;
         sizeOfClass = sizeOfClass_x;
         monitor = monitor_x;
         nextClass = NULL;
@@ -143,6 +148,14 @@ struct Class {
         sizeOfClass = sizeOfClass_x;
         monitor = monitor_x;
         nextClass = nextClass_x;
+        schoolyear = 0;
+    }
+    Class(string classID_x, int schoolyear_x, int sizeOfClass_x, Student* monitor_x, Class* nextClass_x) {
+        classID = classID_x;
+        sizeOfClass = sizeOfClass_x;
+        monitor = monitor_x;
+        nextClass = nextClass_x;
+        schoolyear = schoolyear_x;
     }
     void addNewStudent(Student* newStudent) {
         ++sizeOfClass;
