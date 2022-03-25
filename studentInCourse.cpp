@@ -1,4 +1,4 @@
-#include "struct.h"
+#include "structure.h"
 
 bool enroll(Student *student, string courseID_x) { // Returns 'true' if success, 'false' if failed
     if (student == NULL) return false;
@@ -30,4 +30,17 @@ bool remove(Student *student, string courseID_x) { // Returns 'true' if success,
     student->myCourses->monitor = start->nextEnrolledCourse;
     delete start;
     return removed;
+}
+
+bool viewAllEnrolledCourses(Student *student) {
+    if (student == NULL || student->myCourses == NULL) {
+        cout << "Student not found or could not get courses info!" << endl;
+        return;
+    }
+    enrolledCourses courseList = student->myCourses->monitor;
+    cout << "Student's Enrolled Courses:" << endl;
+    while (courseList != NULL) {
+        cout << "Course ID: " << courseList->courseID << endl;
+    }
+    if (student->myCourses->sizeofList == 0) cout << "No courses to display." << endl;
 }
