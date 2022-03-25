@@ -100,3 +100,19 @@ void viewClassScore(Class someRandomClass, Courses allCourses) {
         //cout << "CGPA: " << GPA2 / thisEnrolledCourses.sizeofList;
     }
 }
+
+void seeStudentScore(Student* student, Courses allCourses) {
+    enrolledCourses thisEnrolledCourses = student->myCourses;
+    enrolledCourse* cur = thisEnrolledCourses.monitor;
+    int index = 0;
+    double GPA = 0;
+    while (cur->nextEnrolledCourse != NULL) {
+        index++;
+        cur = cur->nextEnrolledCourse;
+        Course* thisCourse = allCourses.getCourse((*(cur->courseID)));
+        score* thisScore = thisCourse->courseScoreBoard.getScoreOfStudent(student->studentID);
+        //std::cout << index << " | " << thisCourse->courseName << " | " << thisScore->otherMark << " | " << thisScore->midtermMark << " | " << thisScore->finalMark << " | " << thisScore->totalMark << "\n";
+        GPA += thisScore->totalMark;
+    }
+    //std::cout << "Your CGPA: " << GPA/index;
+}
