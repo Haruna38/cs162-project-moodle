@@ -121,14 +121,6 @@ void viewCourses(School HCMUS) {
 //		cin >> course->semester;
 //		break;
 //	}
-//	case 10: {
-//		//updateScoreBoard();
-//		break;
-//	}
-//	case 11: {
-//		//updateCourseClass();
-//		break;
-//	}
 //	default: {
 //		return;
 //	}
