@@ -32,7 +32,6 @@ int main()
     string ans, psd, name, fname, bio, usern, pw, line, nusn;
     ofstream fileo;
     ifstream filei;
-    cout << "----------------------------------------------Welcome to our system!------------------------------------------------------\n";
     while (exit == 0)
     {
         cin >> choice;
@@ -75,15 +74,8 @@ int main()
                 continue;
             }
             cin >> psd;
-            fname = usn + ".txt";
-            fileo.open(fname.c_str());
-            fileo << usn << endl << name << endl << psd << endl;
-            cin.ignore();
-            getline(cin, bio);
-            fileo << bio << endl;
-            fileo.close();
-            system("pause");
-            system("cls");
+            //if(xu li) {} 
+            showProfile(usn, name, psd);
         }
         else
         {
@@ -91,3 +83,17 @@ int main()
         }
     }
 }
+void showProfile(string usn , string name , string psd) {
+    string fname = usn + ".txt";
+    ofstream fileo;
+    fileo.open(fname.c_str());
+    fileo << usn << endl << name << endl << psd << endl;
+    cin.ignore();
+    //getline(cin, bio);
+    //fileo << bio << endl;
+    fileo.close();
+    system("pause");
+    system("cls");
+}
+
+
