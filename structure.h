@@ -5,11 +5,14 @@
 //  Created by Hoang The Anh on 17/03/2022.
 //  Edited by Hoang The Anh on 19/03/2022.
 //  Edited by Hoang The Anh on 21/03/2022.
-//  Edited by Hoang The Anh on 23/03/2022.
+//  Edited by Hoang The Anh on 22/03/2022.
 //  Edited by Hoang The Anh on 24/03/2022.
+//  Edited by Hoang The Anh on 30/03/2022.
 
 #ifndef structure_h
 #define structure_h
+
+#pragma once
 
 #include <string>
 #include <cstring>
@@ -107,38 +110,36 @@ struct Student {
         inClassMonitor = inClassMonitor_x;
         myCourses = myCourses_x;
     }
+    void addNewEnrolledCourse(string* courseID_x) {
+        myCourses.addNewEnrolledCourse(courseID_x);
+    }
 };
 
 struct Class {
     string classID;
-    int schoolyear;
     int sizeOfClass;
     Student* monitor;
     Class* nextClass;
     Class() {
         classID = "";
-        schoolyear = 0;
         sizeOfClass = 0;
         monitor = new Student();
         nextClass = NULL;
     }
     Class(string classID_x) {
         classID = classID_x;
-        schoolyear = 0;
         sizeOfClass = 0;
         monitor = new Student();
         nextClass = NULL;
     }
     Class(string classID_x, int sizeOfClass_x) {
         classID = classID_x;
-        schoolyear = 0;
         sizeOfClass = sizeOfClass_x;
         monitor = new Student();
         nextClass = NULL;
     }
     Class(string classID_x, int sizeOfClass_x, Student* monitor_x) {
         classID = classID_x;
-        schoolyear = 0;
         sizeOfClass = sizeOfClass_x;
         monitor = monitor_x;
         nextClass = NULL;
@@ -148,14 +149,6 @@ struct Class {
         sizeOfClass = sizeOfClass_x;
         monitor = monitor_x;
         nextClass = nextClass_x;
-        schoolyear = 0;
-    }
-    Class(string classID_x, int schoolyear_x, int sizeOfClass_x, Student* monitor_x, Class* nextClass_x) {
-        classID = classID_x;
-        sizeOfClass = sizeOfClass_x;
-        monitor = monitor_x;
-        nextClass = nextClass_x;
-        schoolyear = schoolyear_x;
     }
     void addNewStudent(Student* newStudent) {
         ++sizeOfClass;
@@ -341,8 +334,7 @@ struct Course {
         courseScoreBoard = courseScoreBoard_x;
     }
     void addStudentToCourse(Student* newStudent) {
-        courseClass.addStudentToCourse(newStudent);
-        (newStudent->myCourses).addNewEnrolledCourse(&courseID);
+        courseClass.addNewStudent(newStudent);
     }
 };
 
@@ -396,7 +388,8 @@ struct Courses{
     }
 };
 
-struct School{
+struct School {
+    int schoolyear;
     Classes allClasses;
     Courses allCourses;
     School() {
