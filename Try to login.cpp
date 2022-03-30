@@ -95,5 +95,18 @@ void showProfile(string usn , string name , string psd) {
     system("pause");
     system("cls");
 }
+void changePas(string usn , string name , string psd) {
+    string fname = usn + ".txt";
+    ifstream filei;
+    getline(filei, usn);
+    getline(filei, name);
 
+    ofstream fout;
+    fout.open(fname.c_str());
+    fout << usn << endl << name << endl;
+    getline(cin, psd);
+    fout << psd << endl;
+    fout.close();
+
+ }
 
