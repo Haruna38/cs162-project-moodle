@@ -5,10 +5,30 @@ void getAllCourses(School* school) { // get all courses info in school
         cout << "Data not found!" << endl;
         return;
     }
+    string daysOfWeek[7] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+    string sessions[4] = {"07:30", "09:30", "13:30", "15:30"};
     cout << "All courses:" << endl;
     Course *list = school->allCourses->monitor;
+    int i = 0;
     while (list != NULL) {
-        cout << "Course ID: " << list->courseID << endl;
+        cout << ++i << ". " << list->courseName << " (" << list->courseID << ")" << endl;
+        cout << " Teacher: " << list->teacherName << endl;
+        cout << " Number of credits: " << list->numberOfCredit << endl;
+        cout << " Maximum number of students allowed: " << list->maxStudent << endl;
+        cout << " Schedule (Sessions):" << endl;
+        for (int j = 0; j < 2; ++i) {
+            int ses = list->sessions[j];
+            cout << "  " << daysOfWeek[list->days[j] - 1] << " at S" << ses << " (" << sessions[ses] << ")" << endl;
+        }
+        cout << " Semester: " << list->semester << "/" << list->schoolyear << endl;
+        cout << " Classes: ";
+        Class* cl = list->classes;
+        while (cl != NULL && cl->nextClass != NULL) {
+            cout << cl->classID << ", ";
+            cl = cl->nextClass;
+        }
+        cout << cl->nextClass;
+        list = list->nextCourse;
     }
     if (school->allCourses->sizeofList == 0) cout << "No courses to display.";
 }
@@ -20,8 +40,10 @@ void getAllClasses(School* school) { // get all classes info in school
     }
     cout << "All classes:" << endl;
     Course *list = school->allClasses->monitor;
+    int i = 0;
     while (list != NULL) {
-        cout << "Class ID: " << list->ID << " | School year: " << list->schoolyear << " | Class size: " << list->sizeOfClass << endl;
+        cout << ++i << ". " << list->classID << endl;
+        list = list->nextClass;
     }
     if (school->allClasses->sizeofList == 0) cout << "No classes to display.";
 }
