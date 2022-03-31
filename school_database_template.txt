@@ -1,0 +1,12 @@
+Line 1: The number of classes in school
+Line 2: The Class ID of class 1
+Line 3: The Class ID of class 2
+Line 4: The Class ID of class 3
+Line 5: The Class ID of class 4
+...
+Line n: The number of courses in school
+Line n+1: The Course ID of course 1
+Line n+2: The Course ID of course 2
+Line n+3: The Course ID of course 3
+Line n+4: The Course ID of course 4
+...
