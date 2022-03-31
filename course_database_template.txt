@@ -1,0 +1,16 @@
+The name of file: Course ID
+Line 1: Course Name
+Line 2: teacher name
+Line 3: number of credit
+Line 4: max number of students
+Line 5: day of course (2 integer)
+Line 6: session (2 integer)
+Line 7: school year
+Line 8: semester
+Line 9: The number of students attend in that class
+Line 10: The studentID of student 1
+Line 11: The studentID of student 2
+Line 12: The studentID of student 3
+Line 13: The studentID of student 4
+...
+Line n: The name of the CSV Scoreboard file
