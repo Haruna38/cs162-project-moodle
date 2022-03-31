@@ -26,7 +26,7 @@ void valid(string str)
         valid(usn);
     }
 }
-int main()
+void login()
 {
     int choice, i, exit = 0;
     string ans, psd, name, fname, bio, usern, pw, line, nusn;
@@ -109,4 +109,7 @@ void changePas(string usn , string name , string psd) {
     fout.close();
 
  }
-
+void logOut() {
+    system("cls") ;
+    login() ;
+}
