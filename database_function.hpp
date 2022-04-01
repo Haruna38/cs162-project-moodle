@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include "structure.h"
 
-void saveDatabase();
-void loadDatabase();
+void saveDatabase(School mySchool);
+void loadDatabase(School& mySchool);
 
 #endif /* database_function_hpp */
