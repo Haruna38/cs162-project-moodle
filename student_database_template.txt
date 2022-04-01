@@ -1,6 +1,6 @@
 The name of the file: the studentID of the student
 In the file:
-Line 1: password
+Line 1: No
 Line 2: Student ID
 Line 3: First name
 Line 4: Last name
