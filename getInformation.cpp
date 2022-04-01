@@ -47,3 +47,21 @@ void getAllClasses(School* school) { // get all classes info in school
     }
     if (school->allClasses->sizeofList == 0) cout << "No classes to display.";
 }
+
+void getStudentsOnCourse(Course* course) {
+    Class* classes = course->courseClass;
+    cout << "List of students in the course " << course->courseName << " (" << course->courseID << "):" << endl;
+    int classIndex = 0;
+    while (classes != NULL) {
+        cout << ++classIndex << ". Class " << classes->classID << " (" << classes->sizeOfClass << " student(s)):" << endl;
+        Student* students = classes->monitor;
+        int studentIndex = 0;
+        while (students != NULL) {
+            cout << " " << ++studentIndex << ". ID " << students->studentID << " | " << students->firstName << " " << students->lastName << endl;
+            students = students->nextStudent;
+        }
+        if (studentIndex == 0) cout << "This class has no students.";
+        classes = classes->nextClass;
+    }
+    if (classIndex == 0) cout << "This course has no classes.";
+}
