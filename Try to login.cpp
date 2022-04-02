@@ -19,20 +19,18 @@ void valid(string str)
         tm++;
         if (tm == 3)
         {
-            cout << "\nThis username already exists\nPlease try Again.";
             return;
         }
         cin >> usn;
         valid(usn);
     }
 }
-int main()
+void login()
 {
     int choice, i, exit = 0;
     string ans, psd, name, fname, bio, usern, pw, line, nusn;
     ofstream fileo;
     ifstream filei;
-    cout << "----------------------------------------------Welcome to our system!------------------------------------------------------\n";
     while (exit == 0)
     {
         cin >> choice;
@@ -75,19 +73,47 @@ int main()
                 continue;
             }
             cin >> psd;
-            fname = usn + ".txt";
-            fileo.open(fname.c_str());
-            fileo << usn << endl << name << endl << psd << endl;
-            cin.ignore();
-            getline(cin, bio);
-            fileo << bio << endl;
-            fileo.close();
-            system("pause");
-            system("cls");
+            //if(xu li) {} 
+            showProfile(usn, name, psd);
         }
-        else
+        else if(choice == 3){
+          changePas(usn,name,psd) ;
+          system("cls") ;
+          login();
+          }
+      else
         {
             exit = 1;
         }
     }
+}
+void showProfile(string usn , string name , string psd) {
+    string fname = usn + ".txt";
+    ofstream fileo;
+    fileo.open(fname.c_str());
+    fileo << usn << endl << name << endl << psd << endl;
+    cin.ignore();
+    //getline(cin, bio);
+    //fileo << bio << endl;
+    fileo.close();
+    system("pause");
+    system("cls");
+}
+void changePas(string usn , string name , string psd) {
+    string fname = usn + ".txt";
+    ifstream filei;
+    getline(filei, usn);
+    getline(filei, name);
+
+    ofstream fout;
+    fout.open(fname.c_str());
+    fout << usn << endl << name << endl;
+    getline(cin, psd);
+    fout << psd << endl;
+    fout.close();
+
+ }
+void logOut() {
+    system("cls") ;
+    login() ;
 }
