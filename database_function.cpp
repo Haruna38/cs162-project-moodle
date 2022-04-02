@@ -3,7 +3,7 @@
 //  structure
 //
 //  Created by Hoang The Anh on 01/04/2022.
-//
+//  Edited by Hoang The Anh on 02/04/2022.
 
 #include "database_function.hpp"
 #include "structure.h"
@@ -57,6 +57,46 @@ void saveDatabase(School mySchool) {
     fout1.close();
 }
 
-void loadData(School& mySchool) {
-    //luoi qua nen lam sau
+void loadDatabase(School& mySchool) {
+    ifstream fin_school;
+    fin_school.open("myschool.txt");
+    fin_school >> mySchool.allClasses.numberofClasses;
+    for (int i = 0; i < mySchool.allClasses.numberofClasses; i++) {
+        Class* aClass = new Class();
+        fin_school >> aClass->classID;
+        ifstream fin_class; fin_class.open((string)(aClass->classID + ".txt"));
+        fin_class >> aClass->sizeOfClass;
+        for (int j = 0; j < aClass->sizeOfClass; j++) {
+            Student* aStudent = new Student();
+            fin_class >> aStudent->studentID;
+            ifstream fin_student; fin_student.open((string)(to_string(aStudent->studentID) + ".txt"));
+            fin_student >> aStudent->No >> aStudent->firstName >> aStudent->lastName >> aStudent->gender >> aStudent->dateOfBirth >> aStudent->socialID >> aStudent->myCourses.sizeofList;
+            for (int k = 0; k < aStudent->myCourses.sizeofList; k++) {
+                string* anEnrolledCourseID = new string;
+                fin_student >> (*(anEnrolledCourseID));
+                aStudent->myCourses.addNewEnrolledCourse(anEnrolledCourseID);
+            }
+            aClass->addNewStudent(aStudent);
+            fin_student.close();
+        }
+        mySchool.allClasses.addNewClass(aClass);
+        fin_class.close();
+    }
+    fin_school >> mySchool.allCourses.sizeofCourses;
+    for (int i = 0; i < mySchool.allCourses.sizeofCourses; i++) {
+        Course* aCourse = new Course();
+        fin_school >> aCourse->courseID;
+        ifstream fin_course; fin_course.open(aCourse->courseID + ".txt");
+        fin_course >> aCourse->courseName >> aCourse->teacherName >> aCourse->numberofCredit >> aCourse->maxStudent >> aCourse->day[0] >> aCourse->day[1] >> aCourse->session[0] >> aCourse->session[1] >> aCourse->schoolyear >> aCourse->semester;
+        fin_course >> aCourse->courseClass.sizeOfClass;
+        for (int j = 0; j < aCourse->courseClass.sizeOfClass; j++) {
+            Student* aStudent = new Student();
+            fin_course >> aStudent->studentID;
+            aCourse->courseClass.addStudentToCourse(aStudent);
+        }
+        string scoreBoardfile; fin_course >> scoreBoardfile;
+        importScore(aCourse, scoreBoardfile);
+        fin_course.close();
+    }
+    fin_school.close();
 };
