@@ -126,7 +126,7 @@ void updateCourseInfo(Course* course, const int& x) {
 	}
 	}
 }
-//
-//void deleteACourse(Courses courses, string CourseID) {
-//	courses.deleteCourse(CourseID);
-//}
+
+void deleteACourse(Courses courses, string CourseID) {
+	courses.deleteCourse(CourseID);
+}
