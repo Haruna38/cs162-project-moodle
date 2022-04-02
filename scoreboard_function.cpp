@@ -8,18 +8,18 @@
 //  Edited by Hoang The Anh on 23/03/2022.
 //  Edited by Hoang The Anh on 24/03/2022.
 //  Edited by Hoang The Anh on 25/03/2022.
-
+//  Edited by Hoang The Anh on 02/04/2022.
 
 #include "scoreboard_function.hpp"
 #include "structure.h"
 #include "general_function.hpp"
+#include <iostream>
 #include <fstream>
 #include <sstream>
 
 void exportStudentInCourse(Course* someRandomCourse) {
     ofstream fout;
-    string filename = "Student_" + someRandomCourse->courseID + "_" + to_string(getCurrentSchoolYear()) + "_" + /*to_string(getSemester()) +*/ ".csv";
-
+    string filename = "Student_" + someRandomCourse->courseID + "_" + to_string(getCurrentSchoolYear()) + "_" + to_string(getSemester()) + ".csv";
     fout.open(filename);
     fout << "No,First Name,Last Name,\n";
     Student* cur = someRandomCourse->courseClass.monitor;
@@ -29,6 +29,19 @@ void exportStudentInCourse(Course* someRandomCourse) {
         ++stt;
         string desc = to_string(stt) + "," + cur->firstName + "," + cur->lastName + ",\n";
         fout << desc;
+    }
+    fout.close();
+}
+
+void exportScore(Course* randomCourse) {
+    ofstream fout;
+    string filename = "Score_" + randomCourse->courseID + "_" + to_string(randomCourse->schoolyear) + "_" + to_string(randomCourse->semester) + ".csv";
+    fout.open(filename);
+    fout << "No,Student ID,Student Full Name,Total Mark,Final Mark,Midterm Mark,Other Mark,\n";
+    score* cur = randomCourse->courseScoreBoard.monitor;
+    int ind = 1;
+    while (cur->nextScore != NULL) {
+        fout << (ind++) << "," << cur->studentInform->studentID << "," << cur->studentInform->firstName + " " + cur->studentInform->lastName << "," << cur->totalMark << "," << cur->finalMark << "," << cur->midtermMark << "," << cur->otherMark << ",\n";
     }
     fout.close();
 }
@@ -45,8 +58,8 @@ void importScore(Course* &course, string filename) {
         score* newScore = new score();
         newScore->studentInform->studentID = studentID;
         while ((sst >> studentID).fail() && !sst.eof()) {
-            string dummy;
-            sst >> dummy;
+            string tmp; sst >> tmp;
+            newScore->studentInform->lastName += (tmp + " ");
         }
         fin >> dumm >> newScore->totalMark >> dumm >> newScore->finalMark >> dumm >> newScore->midtermMark >> dumm >> newScore->otherMark;
         course->courseScoreBoard.addNewScore(newScore);
@@ -60,7 +73,7 @@ void seeScoreOfCourse(Course* course) {
     int index = 1;
     while (cur->nextScore != NULL) {
         cur = cur->nextScore;
-        //std::cout << index << " | " << cur->studentInform->lastName << " | " << cur->totalMark << " | " << cur->finalMark << " | " << cur->midtermMark << " | " << cur->otherMark << "\n"; -- Waiting for UI/UX
+        std::cout << index << " | " << cur->studentInform->lastName << " | " << cur->totalMark << " | " << cur->finalMark << " | " << cur->midtermMark << " | " << cur->otherMark << "\n";
         index++;
     }
 }
@@ -102,6 +115,7 @@ void viewClassScore(Class someRandomClass, Courses allCourses) {
     }
 }
 
+
 void seeStudentScore(Student* student, Courses allCourses) {
     enrolledCourses thisEnrolledCourses = student->myCourses;
     enrolledCourse* cur = thisEnrolledCourses.monitor;
@@ -112,8 +126,8 @@ void seeStudentScore(Student* student, Courses allCourses) {
         cur = cur->nextEnrolledCourse;
         Course* thisCourse = allCourses.getCourse((*(cur->courseID)));
         score* thisScore = thisCourse->courseScoreBoard.getScoreOfStudent(student->studentID);
-        //std::cout << index << " | " << thisCourse->courseName << " | " << thisScore->otherMark << " | " << thisScore->midtermMark << " | " << thisScore->finalMark << " | " << thisScore->totalMark << "\n";
+        std::cout << index << " | " << thisCourse->courseName << " | " << thisScore->otherMark << " | " << thisScore->midtermMark << " | " << thisScore->finalMark << " | " << thisScore->totalMark << "\n";
         GPA += thisScore->totalMark;
     }
-    //std::cout << "Your CGPA: " << GPA/index;
+    std::cout << "Your CGPA: " << GPA/index;
 }
