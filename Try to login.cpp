@@ -19,7 +19,6 @@ void valid(string str)
         tm++;
         if (tm == 3)
         {
-            cout << "\nThis username already exists\nPlease try Again.";
             return;
         }
         cin >> usn;
@@ -77,7 +76,12 @@ void login()
             //if(xu li) {} 
             showProfile(usn, name, psd);
         }
-        else
+        else if(choice == 3){
+          changePas(usn,name,psd) ;
+          system("cls") ;
+          login();
+          }
+      else
         {
             exit = 1;
         }
