@@ -8,6 +8,7 @@
 //  Edited by Hoang The Anh on 22/03/2022.
 //  Edited by Hoang The Anh on 24/03/2022.
 //  Edited by Hoang The Anh on 30/03/2022.
+//  Edited by Hoang The Anh on 02/04/2022.
 
 #ifndef structure_h
 #define structure_h
@@ -153,8 +154,10 @@ struct Class {
     void addNewStudent(Student* newStudent) {
         ++sizeOfClass;
         newStudent->inClassMonitor = monitor;
-        newStudent->nextStudent = monitor->nextStudent;
-        monitor->nextStudent = newStudent;
+        Student* cur = monitor;
+        while (cur->nextStudent != NULL) cur = cur->nextStudent;
+        newStudent->nextStudent = NULL;
+        cur->nextStudent = newStudent;
     }
     void addStudentToCourse(Student* newStudent) {
         ++sizeOfClass;
@@ -238,8 +241,10 @@ struct scoreBoard {
     }
     void addNewScore(score* newScore) {
         ++sizeofBoard;
-        newScore->nextScore = monitor->nextScore;
-        monitor->nextScore = newScore;
+        score* cur = monitor;
+        while (cur->nextScore != NULL) cur = cur->nextScore;
+        newScore->nextScore = NULL;
+        cur->nextScore = newScore;
     }
     score* getScoreOfStudent(long long studentID) {
         score* cur = monitor;
