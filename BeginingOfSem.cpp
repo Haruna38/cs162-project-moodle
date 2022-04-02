@@ -71,8 +71,8 @@ void addCourse(School HCMUS) {
 }
 
 void viewCourses(School HCMUS) {
-	cout << "There are " << HCMUS.allCourses.sizeofCourses << " courses in total." << endl << endl;
-	/*HCMUS.allCourses.monitor = HCMUS.allCourses.monitor->nextCourse;*/ //not sure if there is a dummy node
+	/*cout << "There are " << HCMUS.allCourses.sizeofCourses << " courses in total." << endl << endl;*/
+	HCMUS.allCourses.monitor = HCMUS.allCourses.monitor->nextCourse; 
 	while (HCMUS.allCourses.monitor) {
 		cout << HCMUS.allCourses.monitor->courseID << endl;
 		cout << HCMUS.allCourses.monitor->courseName << endl;
@@ -81,51 +81,51 @@ void viewCourses(School HCMUS) {
 	}
 }
 
-//void updateCourseInfo(Course* course, const int& x) {
-//	switch (x) {
-//	case 1: {
-//		cin >> course->courseID;
-//		break;
-//	}
-//	case 2: {
-//		cin >> course->courseName;
-//		break;
-//	}
-//	case 3: {
-//		cin >> course->teacherName;
-//		break;
-//	}
-//	case 4: {
-//		cin >> course->numberofCredit;
-//		break;
-//	}
-//	case 5: {
-//		cin >> course->maxStudent;
-//		break;
-//	}
-//	case 6: {
-//		cin >> course->day[0];
-//		cin >> course->day[1];
-//		break;
-//	}
-//	case 7: {
-//		cin >> course->session[0];
-//		cin >> course->session[1];
-//		break;
-//	}
-//	case 8: {
-//		cin >> course->schoolyear;
-//		break;
-//	}
-//	case 9: {
-//		cin >> course->semester;
-//		break;
-//	}
-//	default: {
-//		return;
-//	}
-//	}
-//}
+void updateCourseInfo(Course* course, const int& x) {
+	switch (x) {
+	case 1: {
+		cin >> course->courseID;
+		break;
+	}
+	case 2: {
+		cin >> course->courseName;
+		break;
+	}
+	case 3: {
+		cin >> course->teacherName;
+		break;
+	}
+	case 4: {
+		cin >> course->numberofCredit;
+		break;
+	}
+	case 5: {
+		cin >> course->maxStudent;
+		break;
+	}
+	case 6: {
+		cin >> course->day[0];
+		cin >> course->day[1];
+		break;
+	}
+	case 7: {
+		cin >> course->session[0];
+		cin >> course->session[1];
+		break;
+	}
+	case 8: {
+		cin >> course->schoolyear;
+		break;
+	}
+	case 9: {
+		cin >> course->semester;
+		break;
+	}
+	default: {
+		return;
+	}
+	}
+}
 //
 //void deleteACourse(Courses courses, string CourseID) {
 //	courses.deleteCourse(CourseID);
