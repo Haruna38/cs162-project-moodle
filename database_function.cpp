@@ -52,6 +52,8 @@ void saveDatabase(School mySchool) {
             studentPointer = studentPointer->nextStudent;
             fout2 << studentPointer->studentID << "\n";
         }
+        exportScore(coursePointer);
+        fout2 << "Score_" + coursePointer->courseID + "_" + to_string(coursePointer->schoolyear) + "_" + to_string(coursePointer->semester) + ".csv\n";
         fout2.close();
     }
     fout1.close();
@@ -70,7 +72,11 @@ void loadDatabase(School& mySchool) {
             Student* aStudent = new Student();
             fin_class >> aStudent->studentID;
             ifstream fin_student; fin_student.open((string)(to_string(aStudent->studentID) + ".txt"));
-            fin_student >> aStudent->No >> aStudent->firstName >> aStudent->lastName >> aStudent->gender >> aStudent->dateOfBirth >> aStudent->socialID >> aStudent->myCourses.sizeofList;
+            fin_student >> aStudent->No;
+            fin_student.ignore();
+            getline(fin_student, aStudent->firstName);
+            getline(fin_student, aStudent->lastName);
+            fin_student >> aStudent->gender >> aStudent->dateOfBirth >> aStudent->socialID >> aStudent->myCourses.sizeofList;
             for (int k = 0; k < aStudent->myCourses.sizeofList; k++) {
                 string* anEnrolledCourseID = new string;
                 fin_student >> (*(anEnrolledCourseID));
@@ -87,7 +93,9 @@ void loadDatabase(School& mySchool) {
         Course* aCourse = new Course();
         fin_school >> aCourse->courseID;
         ifstream fin_course; fin_course.open(aCourse->courseID + ".txt");
-        fin_course >> aCourse->courseName >> aCourse->teacherName >> aCourse->numberofCredit >> aCourse->maxStudent >> aCourse->day[0] >> aCourse->day[1] >> aCourse->session[0] >> aCourse->session[1] >> aCourse->schoolyear >> aCourse->semester;
+        getline(fin_course, aCourse->courseName);
+        getline(fin_course, aCourse->teacherName);
+        fin_course >> aCourse->numberofCredit >> aCourse->maxStudent >> aCourse->day[0] >> aCourse->day[1] >> aCourse->session[0] >> aCourse->session[1] >> aCourse->schoolyear >> aCourse->semester;
         fin_course >> aCourse->courseClass.sizeOfClass;
         for (int j = 0; j < aCourse->courseClass.sizeOfClass; j++) {
             Student* aStudent = new Student();
