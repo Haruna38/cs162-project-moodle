@@ -80,10 +80,10 @@ void seeScoreOfCourse(Course* course) {
 
 void updateStudentResult(Course*& course, int studentID, float totalMark_x, float finalMark_x, float midtermMark_x, float otherMark_x) {
     score* studentFound = course->courseScoreBoard.getScoreOfStudent(studentID);
-    if (totalMark_x != -1) studentFound->totalMark = totalMark_x;
-    if (finalMark_x != -1) studentFound->finalMark = finalMark_x;
-    if (midtermMark_x != -1) studentFound->midtermMark = midtermMark_x;
-    if (otherMark_x != -1) studentFound->otherMark = otherMark_x;
+    if (totalMark_x != studentFound->totalMark) studentFound->totalMark = totalMark_x;
+    if (finalMark_x != studentFound->finalMark) studentFound->finalMark = finalMark_x;
+    if (midtermMark_x != studentFound->midtermMark) studentFound->midtermMark = midtermMark_x;
+    if (otherMark_x != studentFound->otherMark) studentFound->otherMark = otherMark_x;
 }
 
 void viewClassScore(Class someRandomClass, Courses allCourses) {
