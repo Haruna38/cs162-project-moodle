@@ -81,7 +81,8 @@ void viewCourses(School HCMUS) {
 	}
 }
 
-void updateCourseInfo(Course* course, const int& x) {
+void updateCourseInfo(School HCMUS, string courseID, const int& x) {
+	Course* course = HCMUS.allCourses.getCourse(courseID);
 	switch (x) {
 	case 1: {
 		cin >> course->courseID;
@@ -127,6 +128,6 @@ void updateCourseInfo(Course* course, const int& x) {
 	}
 }
 
-void deleteACourse(Courses courses, string CourseID) {
-	courses.deleteCourse(CourseID);
+void deleteACourse(School HCMUS, string CourseID) {
+	HCMUS.allCourses.deleteCourse(CourseID);
 }

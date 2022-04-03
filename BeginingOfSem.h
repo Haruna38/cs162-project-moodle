@@ -8,5 +8,5 @@ void createSemester();
 void createRegistration();
 void addCourse(School HCMUS);
 void viewCourses(School HCMUS);
-void updateCourseInfo(Course* course, const int& x);
-void deleteACourse(Courses courses, string CourseID);
+void updateCourseInfo(School HCMUS, string courseID, const int& x);
+void deleteACourse(School HCMUS, string CourseID);
