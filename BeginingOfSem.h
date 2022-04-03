@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <fstream>
+#include "structure.h"
 //#include <Windows.h>
 using namespace std;
 

@@ -66,7 +66,17 @@ void createRegistration() {
 
 void addCourse(School HCMUS) {
 	Course* newCourse = new Course();
-	cin >> newCourse->...;
+	cin >> newCourse->courseID;
+	cin >> newCourse->courseName;
+	cin >> newCourse->teacherName;
+	cin >> newCourse->numberofCredit;
+	cin >> newCourse->maxStudent;
+	cin >> newCourse->day[0];
+	cin >> newCourse->day[1];
+	cin >> newCourse->session[0];
+	cin >> newCourse->session[1];
+	cin >> newCourse->schoolyear;
+	cin >> newCourse->semester;
 	HCMUS.allCourses.addNewCourse(newCourse);
 }
 
