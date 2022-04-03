@@ -18,3 +18,12 @@ int getCurrentSchoolYear() {
     fin.close();
     return schoolyear_result;
 }
+
+int getSemester() {
+    std::ifstream fin;
+    fin.open("currentSemester.txt");
+    int semester_result = 0;
+    fin >> semester_result;
+    fin.close();
+    return semester_result;
+}
