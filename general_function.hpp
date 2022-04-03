@@ -9,6 +9,6 @@
 #define general_function_hpp
 
 int getCurrentSchoolYear();
-//int getSemester();
+int getSemester();
 
 #endif /* general_function_hpp */
