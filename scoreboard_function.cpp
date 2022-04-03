@@ -19,7 +19,7 @@
 
 void exportStudentInCourse(Course* someRandomCourse) {
     ofstream fout;
-    string filename = "Student_" + someRandomCourse->courseID + "_" + to_string(getCurrentSchoolYear()) + "_" + to_string(getSemester()) + ".csv";
+    string filename = "Student_" + someRandomCourse->courseID + "_" + to_string(someRandomCourse->schoolyear) + "_" + to_string(someRandomCourse->semester) + ".csv";
     fout.open(filename);
     fout << "No,First Name,Last Name,\n";
     Student* cur = someRandomCourse->courseClass.monitor;
