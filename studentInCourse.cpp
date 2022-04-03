@@ -14,6 +14,7 @@ bool enroll(Student *student, string courseID_x) { // Returns 'true' if success,
 bool remove(Student *student, string courseID_x) { // Returns 'true' if success, 'false' if failed
     if (student == NULL) return false;
     enrolledCourse *course = student->myCourses->monitor, *start = new enrolledCourse, *prev = start;
+    if (course == NULL) return false;
     start->nextEnrolledCOurse = course;
     bool removed = false;
     while (course != NULL) {
@@ -27,8 +28,8 @@ bool remove(Student *student, string courseID_x) { // Returns 'true' if success,
         }
         else prev = inter;
     }
-    student->myCourses->monitor = start->nextEnrolledCourse;
-    delete start;
+    delete student->myCourses->monitor;
+    student->myCourses->monitor = start;
     return removed;
 }
 
