@@ -27,6 +27,7 @@ void valid(string str)
 }
 void login()
 {
+     //cout << "\nChoose one option:\n1. SignIn/LogIn(press 1 to select this)\n2. SignUp/Register(press 2 to select this)\n\npress any key and enter to exit\n";
     int choice, i, exit = 0;
     string ans, psd, name, fname, bio, usern, pw, line, nusn;
     ofstream fileo;
@@ -36,12 +37,15 @@ void login()
         cin >> choice;
         if (choice == 1)
         {
+            //cout << "Enter your username:";
             cin >> usn;
+            // cout << "\nEnter your password:";
             cin >> psd;
             fname = usn + ".txt";
             filei.open(fname.c_str());
             if (!filei.is_open() && filei.fail())
             {
+               // cout << "\nYou are not registered, please register before logging in.\n";
                 filei.close();
                 system("pause");
                 system("cls");
@@ -52,19 +56,23 @@ void login()
             getline(filei, pw);
             if (usn == usern && psd == pw)
             {
+               // cout << "\nYou are successfully logged in:)
                 getline(filei, line);
                 filei.close();
                 system("pause");
                 system("cls");
             }
             else {
+                //cout << "\nWrong username or password!\nPlease try Again.\n";
             }
             cout << endl;
         }
         else if (choice == 2)
         {
+            //  cout << "\nEnter your name:";
             cin.ignore();
             getline(cin, name);
+            // cout << "\nCreate a username:";
             cin >> usn;
             tm = 0;
             valid(usn);
@@ -72,6 +80,7 @@ void login()
             {
                 continue;
             }
+                   //    cout << "\nCreate a password:";
             cin >> psd;
             //if(xu li) {} 
             showProfile(usn, name, psd);
