@@ -89,8 +89,12 @@ void login()
           changePas(usn,name,psd) ;
           system("cls") ;
           login();
-          }
-      else
+          } 
+      else if(choice == 4 ) {
+          //Log out 
+          logOut() ;
+      }
+        else 
         {
             exit = 1;
         }
@@ -124,5 +128,5 @@ void changePas(string usn , string name , string psd) {
  }
 void logOut() {
     system("cls") ;
-    login() ;
+    return  ;
 }
