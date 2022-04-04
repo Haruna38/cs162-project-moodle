@@ -11,17 +11,6 @@
 //}
 
 void createSemester() {
-	/*cout << "Choose a school year: " << endl;*/
-	ifstream fin;
-	ofstream fout;
-	//fin.open("schoolyear.txt");
-	//int n;
-	//fin >> n;
-	//for (int i = 0; i < n; ++i) {
-	//	int x; fin >> x;
-	//	/*cout << i + 1 << ". " << x << endl;*/
-	//}
-	//fin.close();
 	int schoolyear;
 	cin >> schoolyear; //choose school year (2021, 2022, 2023...)
 	int sem;
@@ -29,6 +18,7 @@ void createSemester() {
 	string start, end;
 	cin >> start;
 	cin >> end;
+	ofstream fout;
 	fout.open("currentSemester.txt");
 	fout << schoolyear << endl;
 	fout << sem << endl;
