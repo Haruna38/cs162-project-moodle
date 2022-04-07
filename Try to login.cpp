@@ -29,7 +29,7 @@ void login()
 {
      //cout << "\nChoose one option:\n1. SignIn/LogIn(press 1 to select this)\n2. SignUp/Register(press 2 to select this)\n\npress any key and enter to exit\n";
     int choice, i, exit = 0;
-    string ans, psd, name, fname, bio, usern, pw, line, nusn;
+    string ans, psd, name, fname/*, bio*/, usern, pw, line, nusn;
     ofstream fileo;
     ifstream filei;
     while (exit == 0)
@@ -86,6 +86,7 @@ void login()
             showProfile(usn, name, psd);
         }
         else if(choice == 3){
+            //change password and clear screen and return login function 
           changePas(usn,name,psd) ;
           system("cls") ;
           login();
