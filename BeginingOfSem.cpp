@@ -63,7 +63,6 @@ void addCourse(School HCMUS) {
 }
 
 void viewCourses(School HCMUS) {
-	/*cout << "There are " << HCMUS.allCourses.sizeofCourses << " courses in total." << endl << endl;*/
 	HCMUS.allCourses.monitor = HCMUS.allCourses.monitor->nextCourse; 
 	while (HCMUS.allCourses.monitor) {
 		cout << HCMUS.allCourses.monitor->courseID << endl;
