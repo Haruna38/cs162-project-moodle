@@ -4,23 +4,23 @@
 
 void createSemester() {
 	int schoolyear;
-	cin >> schoolyear; //choose school year (2021, 2022, 2023...)
+	cin >> schoolyear; //choose school year (2021 - 2025, 2020 - 2024, 2019 - 2023...)
 	int sem;
 	cin >> sem; //choose semester (1 or 2 or 3)
-	string start, end;
-	cin >> start;
-	cin >> end;
+	string start, end; 
+	cin >> start; //choose start date of the new semester 
+	cin >> end; //choose end date of the new semester
 	ofstream fout;
 	fout.open("currentSemester.txt");
-	fout << schoolyear << endl;
-	fout << sem << endl;
-	fout << start << endl;
-	fout << end << endl;
+	fout << schoolyear << endl; //save the current school year as the default for the actions below
+	fout << sem << endl; //save the current semester as the default for the actions below
+	fout << start << endl; //save the start date as the default for the actions below
+	fout << end << endl; //save the end date  as the default for the actions below
 	fout.close();
 
 	fout.open("allSemester.txt", ios::app);
-	fout << schoolyear << endl;
-	fout << sem << endl;
+	fout << schoolyear << endl; 
+	fout << sem << endl; 
 	fout << start << endl;
 	fout << end << endl;
 	fout.close();
