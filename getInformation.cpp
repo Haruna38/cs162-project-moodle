@@ -63,5 +63,5 @@ void getStudentsOnCourse(Course* course) {
         if (studentIndex == 0) cout << "This class has no students.";
         classes = classes->nextClass;
     }
-    if (classIndex == 0) cout << "This course has no classes.";
+    if (classIndex == 0) cout << "This course has no classes."; // Should throw an exception message here
 }
