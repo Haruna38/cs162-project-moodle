@@ -19,10 +19,10 @@ void createSemester() {
 	fout.close();
 
 	fout.open("allSemester.txt", ios::app);
-	fout << schoolyear << endl; 
-	fout << sem << endl; 
-	fout << start << endl;
-	fout << end << endl;
+	fout << schoolyear << endl; //save the school year to the list of all semester
+	fout << sem << endl; //save the semester to the list of all semester
+	fout << start << endl; //save the start date of new semester
+	fout << end << endl; //save the end date of new semester
 	fout.close();
 }
 
