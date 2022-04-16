@@ -164,7 +164,7 @@ struct Class {
         newStudent->nextStudent = monitor->nextStudent;
         monitor->nextStudent = newStudent;
     }
-    Student* getStudent(int studentID) {
+    Student* getStudentFromClass(int studentID) {
         Student* cur = monitor;
         while (cur->nextStudent != NULL) {
             if (cur->nextStudent->studentID == studentID) {
@@ -254,6 +254,15 @@ struct scoreBoard {
             }
         }
         return NULL;
+    }
+    void deleteScore(int index) {
+        int k = 0;
+        score* cur = monitor;
+        for (int i = 0; i < index; i++)
+            cur = cur->nextScore;
+        score* score_to_delete = cur->nextScore;
+        cur->nextScore = score_to_delete->nextScore;
+        delete score_to_delete;
     }
     void deallocate() {
         while (sizeofBoard) {
@@ -400,6 +409,23 @@ struct School {
     School() {
         allClasses = Classes();
         allCourses = Courses();
+    }
+    Student* getStudent(int studentID_x) {
+        Class* curClass = allClasses.monitor;
+        while (curClass->nextClass) {
+            curClass = curClass->nextClass;
+            Student* student_found = curClass->getStudentFromClass(studentID_x);
+            if (student_found) return student_found;
+        }
+        return NULL;
+    }
+    Course* getCourse(string courseID_x) {
+        Course* curCourse = allCourses.monitor;
+        while (curCourse->nextCourse) {
+            curCourse = curCourse->nextCourse;
+            if (curCourse->courseID == courseID_x) return curCourse;
+        }
+        return NULL;
     }
 };
 
