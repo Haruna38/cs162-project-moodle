@@ -7,6 +7,7 @@
 
 #include "database_function.hpp"
 #include "structure.h"
+#include "scoreboard_function.hpp"
 #include "general_function.hpp"
 #include "fstream"
 using namespace std;
