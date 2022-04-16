@@ -13,10 +13,8 @@
 #include"struct.h"
 using namespace std;
 void createClassList(School HCMUS) {
-	int schoolyear_x = getCurrentSchoolYear(); 
 	Class* newClass = new Class();
 	cin >> newClass->classID;
-	newClass->schoolyear = schoolyear_x;
 	if (/*xuly*/) { //nhap tay
 		bool status = true;
 		while (status) {
