@@ -28,15 +28,15 @@ void createSemester() {
 
 void createRegistration() {
 	string start, end;
-	cin >> start;
-	cin >> end;
+	cin >> start; //choose start date for the course registration
+	cin >> end; //choose end date for the course registration
 	int h, m, s;
-	cin >> h;
-	cin >> m;
-	cin >> s;
+	cin >> h; //choose start hour for the course registration
+	cin >> m; //choose start minute for the course registration
+	cin >> s; //choose start second for the course registration
 	ofstream fout;
-	fout.open("courseRegistration.txt");
-	fout << h * 3600 + m * 60 + s << endl;
+	fout.open("courseRegistration.txt"); //save all the information of the course registration session into a file
+	fout << h * 3600 + m * 60 + s << endl; 
 	fout << start << endl;
 	cin >> h;
 	cin >> m;
