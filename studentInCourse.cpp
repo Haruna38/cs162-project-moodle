@@ -35,7 +35,7 @@ bool remove(Student *student, string courseID_x) { // Returns 'true' if success,
     return removed;
 }
 
-bool viewAllEnrolledCourses(Student *student) {
+void viewAllEnrolledCourses(Student *student) {
     if (student == NULL) {
         cout << "Error: Student not found or could not get courses info!" << endl;
         return;
