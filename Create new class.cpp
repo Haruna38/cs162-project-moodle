@@ -15,13 +15,13 @@ using namespace std;
 void createClassList(School HCMUS) {
 	Class* newClass = new Class();
 	cin >> newClass->classID;
-	if (/*xuly*/) { //nhap tay
+	if (true) { //nhap tay
 		bool status = true;
 		while (status) {
 			Student* newStudent = new Student();
 			cin >> newStudent->No >> newStudent->studentID >> newStudent->dateOfBirth >> newStudent->socialID >> newStudent->firstName >>newStudent->lastName>> newStudent->gender;
 			newClass->addNewStudent(newStudent);
-			if (/*xuly*/) status = false;
+			if (true) status = false;
 		}
 	}
 	else { //nhap bang 
