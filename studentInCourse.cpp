@@ -2,21 +2,21 @@
 #include <iostream>
 
 bool enroll(Student *student, string courseID_x, string &failed_reason) { // Returns 'true' if success, 'false' if failed
-    if (student == NULL) return false;
+    if (student == NULL || &(student->myCourses) == NULL) return false;
     enrolledCourse *courses = student->myCourses.monitor->nextEnrolledCourse;
     while (courses != NULL) {
-        if (courses->courseID == courseID_x) {
+        if (*(courses->courseID) == courseID_x) {
             failed_reason = "You are already enrolled in this course!";
             return false;
         }
         courses = courses->nextEnrolledCourse;
     }
-    student->myCourses.addNewEnrolledCourse(courseID_x);
+    student->myCourses.addNewEnrolledCourse(&courseID_x);
     return true;
 }
 
 bool remove(Student *student, string courseID_x) { // Returns 'true' if success, 'false' if failed
-    if (student == NULL) return false;
+    if (student == NULL || &(student->myCourses) == NULL) return false;
     enrolledCourse *prev = student->myCourses.monitor, *start = prev->nextEnrolledCourse, *course = start;
     if (course == NULL) return false;
     start->nextEnrolledCourse = course;
@@ -24,7 +24,7 @@ bool remove(Student *student, string courseID_x) { // Returns 'true' if success,
     while (course != NULL) {
         enrolledCourse *inter = course;
         course = course->nextEnrolledCourse;
-        if (course->courseID == courseID_x) {
+        if (*(course->courseID) == courseID_x) {
             prev->nextEnrolledCourse = course;
             removed = true;
             delete inter;
