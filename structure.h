@@ -249,8 +249,9 @@ struct scoreBoard {
     score* getScoreOfStudent(long long studentID) {
         score* cur = monitor;
         while (cur->nextScore != NULL) {
-            if (cur->nextScore->studentInform->studentID == studentID) {
-                return cur->nextScore;
+            cur = cur->nextScore;
+            if (cur->studentInform->studentID == studentID) {
+                return cur;
             }
         }
         return NULL;
