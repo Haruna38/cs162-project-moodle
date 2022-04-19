@@ -36,13 +36,13 @@ void createRegistration() {
 	cin >> s; //choose start second for the course registration
 	ofstream fout;
 	fout.open("courseRegistration.txt"); //save all the information of the course registration session into a file
-	fout << h * 3600 + m * 60 + s << endl; 
-	fout << start << endl;
-	cin >> h;
-	cin >> m;
-	cin >> s;
-	fout << h * 3600 + m * 60 + s << endl;
-	fout << end << endl;
+	fout << h * 3600 + m * 60 + s << endl; //save the start time for the course registration into a file
+	fout << start << endl; //save the start date for the course registration into a file
+	cin >> h; //choose end hour for the course registration into a file
+	cin >> m; //choose end minute for the course registration into a file
+	cin >> s; //choose end second for the course registration into a file
+	fout << h * 3600 + m * 60 + s << endl; //save end hour for the course registration into a file
+	fout << end << endl; //save end date for the course registration into a file
 	fout.close();
 }
 
