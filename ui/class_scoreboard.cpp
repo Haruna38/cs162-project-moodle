@@ -1,5 +1,5 @@
-#include "design14.h"
-#include "./ui_design14.h"
+#include "class_scoreboard.h"
+#include "./ui_class_scoreboard.h"
 
 design14::design14(QWidget *parent)
     : QMainWindow(parent)
