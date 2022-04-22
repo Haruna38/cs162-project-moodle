@@ -1,0 +1,5 @@
+The name of the file: ClassID
+Line 1: The number of students in that class
+Line 2: The studentID of student 1
+Line 3: The studentID of student 2
+...
