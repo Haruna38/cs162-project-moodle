@@ -5,7 +5,6 @@
 #include <QDialog>
 #include <QMessageBox>
 
-#include "fakeallcourselist.h"
 #include "school.h"
 
 namespace Ui {
@@ -19,15 +18,11 @@ class staff : public QMainWindow
 public:
     explicit staff(QWidget *parent = nullptr);
     ~staff();
-private slots:
-    void showMyProfile();
-    void showAllCourses();
-    void showSchoolOptions();
 
 private:
     Ui::staff *ui;
     school* sch;
-    fakeAllCourseList* courseList;
+    // fakeAllCourseList* courseList;
 };
 
 #endif // STAFF_H
