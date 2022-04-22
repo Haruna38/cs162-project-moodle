@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>student</class>
+ <widget class="QMainWindow" name="student">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Course Registration System</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#centralwidget {
+	border-image: url(&quot;:/test.jpeg&quot;) 0 0 0 0 stretch stretch;
+}</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item row="4" column="1">
+     <widget class="QPushButton" name="enroll_course">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>64</height>
+       </size>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#enroll_course {
+	font-weight: bold;
+	font-size: 20pt;
+	background: qlineargradient(x: 0, y:0, x2: 0, y2: 1, stop: 0 #2E8B57, stop: 0.5 green, stop: 1 #2E8B57);
+	border-radius: 10%;
+}
+
+:hover#enroll_course {
+	border: 2px solid black;
+}</string>
+      </property>
+      <property name="text">
+       <string>ENROLL COURSE</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLabel" name="title">
+      <property name="maximumSize">
+       <size>
+        <width>374</width>
+        <height>128</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:32pt; font-weight:700;&quot;&gt;COURSE REGISTRATION&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:32pt; font-weight:700;&quot;&gt;SYSTEM&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLabel" name="welcome_text">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>48</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt; font-weight:700;&quot;&gt;Welcome back, User101!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QPushButton" name="my_profile_button">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>64</height>
+       </size>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#my_profile_button {
+	font-weight: bold;
+	font-size: 20pt;
+	background: qlineargradient(x: 0, y:0, x2: 0, y2: 1, stop: 0 #2E8B57, stop: 0.5 green, stop: 1 #2E8B57);
+	border-radius: 10%;
+}
+
+:hover#my_profile_button {
+	border: 2px solid black;
+}</string>
+      </property>
+      <property name="text">
+       <string>MY PROFILE</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QPushButton" name="courses_button">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>64</height>
+       </size>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#courses_button {
+	font-weight: bold;
+	font-size: 20pt;
+	background: qlineargradient(x: 0, y:0, x2: 0, y2: 1, stop: 0 #2E8B57, stop: 0.5 green, stop: 1 #2E8B57);
+	border-radius: 10%;
+}
+
+:hover#courses_button {
+	border: 2px solid black;
+}</string>
+      </property>
+      <property name="text">
+       <string>MY COURSES</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QPushButton" name="view_score">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>64</height>
+       </size>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#view_score {
+	font-weight: bold;
+	font-size: 20pt;
+	background: qlineargradient(x: 0, y:0, x2: 0, y2: 1, stop: 0 #2E8B57, stop: 0.5 green, stop: 1 #2E8B57);
+	border-radius: 10%;
+}
+
+:hover#view_score {
+	border: 2px solid black;
+}</string>
+      </property>
+      <property name="text">
+       <string>VIEW SCORE</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionClose_2"/>
+   </widget>
+   <widget class="QMenu" name="menuOptions">
+    <property name="title">
+     <string>Options</string>
+    </property>
+    <addaction name="actionEdit_profile"/>
+    <addaction name="separator"/>
+    <addaction name="actionConfigure_school"/>
+    <addaction name="actionConfigure_courses"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuOptions"/>
+  </widget>
+  <action name="actionEdit_profile">
+   <property name="text">
+    <string>Edit profile</string>
+   </property>
+  </action>
+  <action name="actionConfigure_school">
+   <property name="text">
+    <string>Configure school</string>
+   </property>
+  </action>
+  <action name="actionConfigure_courses">
+   <property name="text">
+    <string>Configure courses</string>
+   </property>
+  </action>
+  <action name="actionClose_2">
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
