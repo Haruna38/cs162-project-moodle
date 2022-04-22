@@ -48,18 +48,18 @@ void createRegistration() {
 
 void addCourse(School HCMUS) {
 	Course* newCourse = new Course();
-	cin >> newCourse->courseID;
-	cin >> newCourse->courseName;
-	cin >> newCourse->teacherName;
-	cin >> newCourse->numberofCredit;
-	cin >> newCourse->maxStudent;
-	cin >> newCourse->day[0];
-	cin >> newCourse->day[1];
-	cin >> newCourse->session[0];
-	cin >> newCourse->session[1];
-	cin >> newCourse->schoolyear;
-	cin >> newCourse->semester;
-	HCMUS.allCourses.addNewCourse(newCourse);
+	cin >> newCourse->courseID; //input new course ID
+	cin >> newCourse->courseName; //input new course Name
+	cin >> newCourse->teacherName; //input new course teacher name
+	cin >> newCourse->numberofCredit; //input new course number of credits
+	cin >> newCourse->maxStudent; //input new course max student
+	cin >> newCourse->day[0]; //input new course first day
+	cin >> newCourse->day[1]; //input new course second day
+	cin >> newCourse->session[0]; //input new course first session
+	cin >> newCourse->session[1]; //input new course second session
+	cin >> newCourse->schoolyear; //input new course schoolyear
+	cin >> newCourse->semester; //input new course semester
+	HCMUS.allCourses.addNewCourse(newCourse); //add new course to a list of all course
 }
 
 void viewCourses(School HCMUS) {
