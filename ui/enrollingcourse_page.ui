@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>enrollingcourse_page</class>
+ <widget class="QMainWindow" name="enrollingcourse_page">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>894</width>
+    <height>604</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTableWidget" name="availableCourseTable">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>50</y>
+      <width>411</width>
+      <height>401</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string>#</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Course ID</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Course Name</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Session 1</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Session 2</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Lecturer</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>School Year</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Semester</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QTableWidget" name="enrolledCourseTable">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>50</y>
+      <width>411</width>
+      <height>401</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string>#</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Course ID</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Course Name</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Session 1</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Session 2</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Lecturer</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>School Year</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Semester</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QPushButton" name="enrollBtt">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>460</y>
+      <width>100</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Enroll</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="removeBtt">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>460</y>
+      <width>100</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Remove</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="saveBtt">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>510</y>
+      <width>100</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Save</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>20</y>
+      <width>121</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Available course(s)</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>20</y>
+      <width>121</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Enrolled course(s)</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>894</width>
+     <height>24</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
