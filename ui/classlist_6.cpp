@@ -1,6 +1,6 @@
-#include "classlist_6.h"
+#include "ui/classlist_6.h"
 #include "./ui_classlist_6.h"
-#include"structure.h"
+#include "operating_function/structure.h"
 
 classlist_6::classlist_6(QWidget *parent)
     : QMainWindow(parent)

@@ -1,10 +1,10 @@
-#include "mainwindow.h"
+#include "ui/mainwindow.h"
 #include <fstream>
 #include <iostream>
 #include <QMessageBox>
 #include "./ui_mainwindow.h"
-#include "staff.h"
-#include "cs162-project-moodle-main/login_function.h"
+#include "ui/staff.h"
+#include "operating_function//login_function.h"
 using namespace std;
 
 #include <QMessageBox>

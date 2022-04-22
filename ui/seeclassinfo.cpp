@@ -1,7 +1,7 @@
-#include "seeclassinfo.h"
+#include "ui/seeclassinfo.h"
 #include "ui_seeclassinfo.h"
 
-#include "cs162-project-moodle-main/global.h"
+#include "global.h"
 
 #include <QTableWidgetItem>
 

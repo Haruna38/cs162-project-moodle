@@ -1,7 +1,7 @@
-#include "scoreboard_course_staff.h"
+#include "ui/scoreboard_course_staff.h"
 #include "ui_scoreboard_course_staff.h"
 
-#include "cs162-project-moodle-main/global.h"
+#include "global.h"
 
 Course* course = nullptr;
 

@@ -1,19 +1,19 @@
-#include "class_scoreboard.h"
-#include "ui_class_scoreboard.h"
+#include "ui/class_scoreboard.h"
+#include "./ui_class_scoreboard.h"
 
-class_scoreboard::class_scoreboard(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::class_scoreboard)
+design14::design14(QWidget *parent)
+    : QMainWindow(parent)
+    , ui(new Ui::design14)
 {
     ui->setupUi(this);
 }
 
-class_scoreboard::~class_scoreboard()
+design14::~design14()
 {
     delete ui;
 }
 
-void class_scoreboard::StudentTableDisplay(Class myClass, School mySchool)
+void design14::StudentTableDisplay(Class myClass, School mySchool)
 {
     Student* cur = myClass.monitor;
     QTableWidget *table = ui->tableWidget;

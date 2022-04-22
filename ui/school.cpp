@@ -1,4 +1,4 @@
-#include "school.h"
+#include "ui/school.h"
 #include "ui_school.h"
 
 school::school(QWidget *parent) :

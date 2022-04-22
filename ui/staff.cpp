@@ -1,6 +1,6 @@
-#include "staff.h"
+#include "ui/staff.h"
 #include "ui_staff.h"
-#include "school.h"
+#include "ui/school.h"
 
 staff::staff(QWidget *parent) :
     QMainWindow(parent),

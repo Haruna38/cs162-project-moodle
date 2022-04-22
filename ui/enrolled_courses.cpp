@@ -1,4 +1,4 @@
-#include "enrolled_courses.h"
+#include "ui/enrolled_courses.h"
 #include "ui_enrolled_courses.h"
 #include <fstream>
 

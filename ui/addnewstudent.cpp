@@ -1,6 +1,6 @@
-#include "addnewstudent.h"
+#include "ui/addnewstudent.h"
 #include "ui_addnewstudent.h"
-#include "addnewclass.h"
+#include "ui/addnewclass.h"
 #include "ui_addnewclass.h"
 
 Ui::AddNewClass* ancUI_x;

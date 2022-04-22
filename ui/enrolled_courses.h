@@ -2,8 +2,8 @@
 #define ENROLLED_COURSES_H
 
 #include <QMainWindow>
-#include "cs162-project-moodle-main/structure.h"
-#include "cs162-project-moodle-main/global.h"
+#include "operating_function/structure.h"
+#include "global.h"
 
 namespace Ui {
 class enrolled_courses;

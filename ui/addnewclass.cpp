@@ -1,7 +1,7 @@
-#include "addnewclass.h"
+#include "ui/addnewclass.h"
 #include "ui_addnewclass.h"
-#include "cs162-project-moodle-main/structure.h"
-#include "addnewstudent.h"
+#include "operating_function/structure.h"
+#include "ui/addnewstudent.h"
 #include "cs162-project-moodle-main/global.h"
 
 #include <QMessageBox>

@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <QTableWidgetItem>
 
-#include "cs162-project-moodle-main/structure.h"
+#include "operating_function/structure.h"
 
 namespace Ui {
 class scoreboard_course_staff;

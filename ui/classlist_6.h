@@ -1,6 +1,7 @@
 #ifndef CLASSLIST_6_H
 #define CLASSLIST_6_H
-#include"structure.h"
+
+#include "operating_function/structure.h"
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE

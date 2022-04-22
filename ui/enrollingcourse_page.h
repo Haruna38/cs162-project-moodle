@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 
-#include "cs162-project-moodle-main/structure.h"
+#include "operating_function/structure.h"
 
 namespace Ui {
 class enrollingcourse_page;

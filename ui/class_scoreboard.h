@@ -1,24 +1,23 @@
-#ifndef CLASS_SCOREBOARD_H
-#define CLASS_SCOREBOARD_H
+#ifndef DESIGN14_H
+#define DESIGN14_H
 
 #include <QMainWindow>
-#include "structure.h"
+#include "operating_function/structure.h"
 
-namespace Ui {
-class class_scoreboard;
-}
+QT_BEGIN_NAMESPACE
+namespace Ui { class design14; }
+QT_END_NAMESPACE
 
-class class_scoreboard : public QMainWindow
+class design14 : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit class_scoreboard(QWidget *parent = nullptr);
-    ~class_scoreboard();
+    design14(QWidget *parent = nullptr);
+    ~design14();
     void StudentTableDisplay(Class myClass, School mySchool);
 
 private:
-    Ui::class_scoreboard *ui;
+    Ui::design14 *ui;
 };
-
-#endif // CLASS_SCOREBOARD_H
+#endif // DESIGN14_H

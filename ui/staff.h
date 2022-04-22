@@ -5,7 +5,7 @@
 #include <QDialog>
 #include <QMessageBox>
 
-#include "school.h"
+#include "ui/school.h"
 
 namespace Ui {
 class staff;

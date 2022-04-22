@@ -1,6 +1,7 @@
 #ifndef COURSE_INFOR_H
 #define COURSE_INFOR_H
-#include"structure.h"
+
+#include "operating_function/structure.h"
 #include <QMainWindow>
 
 namespace Ui {

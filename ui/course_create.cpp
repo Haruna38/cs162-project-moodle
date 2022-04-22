@@ -1,6 +1,6 @@
-#include "course_create.h"
+#include "ui/course_create.h"
 #include "ui_course_create.h"
-#include "cs162-project-moodle-main/BeginingOfSem.h"
+#include "operating_function/BeginingOfSem.h"
 using namespace std;
 
 Course_Create::Course_Create(QWidget *parent) :

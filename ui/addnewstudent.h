@@ -2,7 +2,7 @@
 #define ADDNEWSTUDENT_H
 
 #include <QDialog>
-#include "addnewclass.h"
+#include "ui/addnewclass.h"
 
 namespace Ui {
 class addnewstudent;

@@ -1,6 +1,6 @@
-#include "enrollingcourse_page.h"
-#include "cs162-project-moodle-main/global.h"
-#include "cs162-project-moodle-main/general_function.hpp"
+#include "ui/enrollingcourse_page.h"
+#include "global.h"
+#include "operating_function//general_function.hpp"
 #include "ui_enrollingcourse_page.h"
 
 #include <sstream>

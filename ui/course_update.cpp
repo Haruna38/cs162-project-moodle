@@ -1,9 +1,9 @@
-#include "course_update.h"
+#include "ui/course_update.h"
 #include "ui_course_update.h"
-#include "addnewcourse.h"
+#include "ui/addnewcourse.h"
 #include <fstream>
 
-#include "cs162-project-moodle-main/global.h"
+#include "global.h"
 #include <QTableWidgetItem>
 
 course_update::course_update(QWidget *parent) :

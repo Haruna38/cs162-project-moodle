@@ -2,7 +2,7 @@
 #define COURSE_CREATE_H
 
 #include <QMainWindow>
-#include "cs162-project-moodle-main/BeginingOfSem.h"
+#include "operating_function/BeginingOfSem.h"
 using namespace std;
 
 namespace Ui {
