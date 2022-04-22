@@ -1,6 +1,6 @@
 #pragma once
 
-#include "cs162-project-moodle-main/structure.h"
+#include "operating_function/structure.h"
 
 #ifndef GLOBAL
 #define GLOBAL
