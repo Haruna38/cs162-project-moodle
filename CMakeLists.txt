@@ -16,25 +16,15 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools)
 
 set(TS_FILES Login_Page_en_US.ts)
 
-file(GLOB SOURCES "cs162-project-moodle-main/*.h" "cs162-project-moodle-main/*.hpp" "cs162-project-moodle-main/*.cpp")
+file(GLOB SOURCES_OPERATING "operating_function/*.h" "operating_function/*.hpp" "operating_function/*.cpp")
+
+file(GLOB SOURCES_UI "ui/*.h" "ui/*.ui" "ui/*.cpp")
 
 set(PROJECT_SOURCES
         main.cpp
-        mainwindow.cpp
-        mainwindow.h
-        mainwindow.ui
-        enrolled_courses.cpp
-        enrolled_courses.h
-        enrolled_courses.ui
-        scoreboard_course_staff.cpp
-        scoreboard_course_staff.h
-        scoreboard_course_staff.ui
-        staff.ui staff.h staff.cpp
-        course_create.cpp course_create.h course_create.ui
-        addnewclass.h addnewclass.cpp addnewclass.ui
-        addnewstudent.h addnewstudent.cpp addnewstudent.ui
-        enrollingcourse_page.cpp enrollingcourse_page.h enrollingcourse_page.ui
-        ${SOURCES}
+        global.h global.cpp
+        ${SOURCES_OPERATING}
+        #${SOURCES_UI}
         ${TS_FILES}
 )
 
