@@ -2,14 +2,7 @@
 #include "BeginingOfSem.h"
 #include "structure.h"
 
-void createSemester() {
-	int schoolyear;
-	cin >> schoolyear; //choose school year (2021 - 2025, 2020 - 2024, 2019 - 2023...)
-	int sem;
-	cin >> sem; //choose semester (1 or 2 or 3)
-	string start, end; 
-	cin >> start; //choose start date of the new semester 
-	cin >> end; //choose end date of the new semester
+void createSemester(int schoolyear, int sem, string start, string end) {
 	ofstream fout;
 	fout.open("currentSemester.txt");
 	fout << schoolyear << endl; //save the current school year as the default for the actions below
@@ -26,14 +19,7 @@ void createSemester() {
 	fout.close();
 }
 
-void createRegistration() {
-	string start, end;
-	cin >> start; //choose start date for the course registration
-	cin >> end; //choose end date for the course registration
-	int h, m, s;
-	cin >> h; //choose start hour for the course registration
-	cin >> m; //choose start minute for the course registration
-	cin >> s; //choose start second for the course registration
+void createRegistration(string start, string end, int h, int m, int s) {
 	ofstream fout;
 	fout.open("courseRegistration.txt"); //save all the information of the course registration session into a file
 	fout << h * 3600 + m * 60 + s << endl; //save the start time for the course registration into a file
