@@ -3,7 +3,7 @@
 #include "ui/addnewclass.h"
 #include "ui_addnewclass.h"
 
-Ui::AddNewClass* ancUI_x;
+Ui::AddNewClass* ancUI_xy;
 
 #include <QTableWidgetItem>
 
@@ -12,7 +12,7 @@ addnewstudent::addnewstudent(QWidget *parent, Ui::AddNewClass* ancUI) :
     ui(new Ui::addnewstudent)
 {
     ui->setupUi(this);
-    ancUI_x = ancUI;
+    ancUI_xy = ancUI;
 }
 
 addnewstudent::~addnewstudent()
@@ -28,13 +28,13 @@ void addnewstudent::on_pushButton_clicked()
     std::string gender_x = (ui->genderBox->currentText()).toStdString();
     std::string date_x = (ui->birthdateEdit->date()).toString("dd/MM/yyyy").toStdString();
     long long socialID_x = (ui->socialIDEdit->text()).toLongLong();
-    ancUI_x->tableWidget->insertRow(ancUI_x->tableWidget->rowCount());
+    ancUI_xy->tableWidget->insertRow(ancUI_xy->tableWidget->rowCount());
     QTableWidgetItem* item;
-    for (int i = 0; i < ancUI_x->tableWidget->columnCount(); i++) {
+    for (int i = 0; i < ancUI_xy->tableWidget->columnCount(); i++) {
         item = new QTableWidgetItem;
         switch(i) {
             case 0:
-                item->setText(QString::number(ancUI_x->tableWidget->rowCount()));
+                item->setText(QString::number(ancUI_xy->tableWidget->rowCount()));
                 break;
             case 1:
                 item->setText(QString::number(studentID_x));
@@ -55,7 +55,7 @@ void addnewstudent::on_pushButton_clicked()
                 item->setText(QString::number(socialID_x));
                 break;
         }
-        ancUI_x->tableWidget->setItem(ancUI_x->tableWidget->rowCount()-1, i, item);
+        ancUI_xy->tableWidget->setItem(ancUI_xy->tableWidget->rowCount()-1, i, item);
     }
     this->close();
 }

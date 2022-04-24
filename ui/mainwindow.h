@@ -18,7 +18,6 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    staff* staffWindow;
 
 private slots:
     void on_pushButton_clicked();

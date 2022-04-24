@@ -3,7 +3,6 @@
 
 #include <QMainWindow>
 #include "operating_function/structure.h"
-#include "global.h"
 
 namespace Ui {
 class enrolled_courses;
@@ -14,14 +13,14 @@ class enrolled_courses : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit enrolled_courses(QWidget *parent = nullptr);
+    explicit enrolled_courses(QWidget *parent = nullptr, Student* thisStudent = nullptr);
     ~enrolled_courses();
 
 
 private:
     Ui::enrolled_courses *ui;
-    void CustomTableDisplay(School mySchool_x, int studentID_x, int schoolyear_x, int semester_x);
-    void AllCourseTableDisplay(School mySchool_x, int studentID_x);
+    void CustomTableDisplay(int schoolyear_x, int semester_x);
+    void AllCourseTableDisplay();
 
 
 private slots:

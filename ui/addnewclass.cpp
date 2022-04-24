@@ -2,7 +2,7 @@
 #include "ui_addnewclass.h"
 #include "operating_function/structure.h"
 #include "ui/addnewstudent.h"
-#include "cs162-project-moodle-main/global.h"
+#include "global.h"
 
 #include <QMessageBox>
 #include <QFileDialog>

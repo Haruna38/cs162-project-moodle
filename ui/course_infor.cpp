@@ -1,6 +1,7 @@
 #include "ui/course_infor.h"
 #include "ui_course_infor.h"
 #include "operating_function/structure.h"
+
 course_infor::course_infor(QWidget *parent , Course* course) :
     QMainWindow(parent),
     ui(new Ui::course_infor)

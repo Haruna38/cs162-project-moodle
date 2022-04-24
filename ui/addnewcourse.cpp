@@ -1,7 +1,7 @@
 #include "ui/addnewcourse.h"
 #include "ui_addnewcourse.h"
 #include "operating_function/structure.h"
-#include "cs162-project-moodle-main/global.h"
+#include "global.h"
 #include "ui_course_update.h"
 
 #include <QMessageBox>
@@ -50,7 +50,7 @@ void AddNewCourse::on_btnSave_clicked()
         int capacity = (ui->spbxCapacity->text()).toInt();
         std::string day;
         day = (ui->cbbxDay1->currentText()).toStdString();
-        int day1 = (ui->cbbxDay1-)
+        int day1 = DayStringtoInt(day);
         day = (ui->cbbxDay2->currentText()).toStdString();
         int day2 = DayStringtoInt(day);
         std::string session;
