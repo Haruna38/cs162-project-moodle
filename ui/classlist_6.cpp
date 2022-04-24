@@ -59,10 +59,11 @@ void classlist_6::on_tableWidget_cellClicked(int row, int column)
 }
 
 
-
 void classlist_6::on_view_class_clicked()
 {
-    string classID_x =ui->tableWidget->item(clssRow,clssCol)->text().toStdString() ;
+    string classID_x =ui->tableWidget->item(clssRow,1)->text().toStdString() ;
+    view_class *ansWindow = new view_class(nullptr,mySchool.getClass(classID_x)) ;
+    ansWindow->show() ;
 }
 
 
@@ -79,4 +80,3 @@ void classlist_6::on_remove_class_clicked()
     string classID_x =ui->tableWidget->item(clssRow,clssCol)->text().toStdString();
     ui->tableWidget->removeRow(clssRow) ;
 }
-
