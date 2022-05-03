@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>staff</class>
- <widget class="QMainWindow" name="staff">
+ <class>school</class>
+ <widget class="QMainWindow" name="school">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -17,7 +17,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Course Registration System</string>
+   <string>School Manager</string>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
@@ -44,8 +44,8 @@
     <property name="bottomMargin">
      <number>0</number>
     </property>
-    <item row="4" column="1">
-     <widget class="QPushButton" name="school_button">
+    <item row="3" column="1">
+     <widget class="QPushButton" name="create_semester">
       <property name="maximumSize">
        <size>
         <width>16777215</width>
@@ -56,19 +56,19 @@
        <cursorShape>PointingHandCursor</cursorShape>
       </property>
       <property name="styleSheet">
-       <string notr="true">#school_button {
+       <string notr="true">#create_semester {
 	font-weight: bold;
 	font-size: 20pt;
 	background: qlineargradient(x: 0, y:0, x2: 0, y2: 1, stop: 0 #2E8B57, stop: 0.5 green, stop: 1 #2E8B57);
 	border-radius: 10%;
 }
 
-:hover#school_button {
+:hover#create_semester {
 	border: 2px solid black;
 }</string>
       </property>
       <property name="text">
-       <string>SCHOOL</string>
+       <string>CREATE SEMESTER</string>
       </property>
      </widget>
     </item>
@@ -81,25 +81,12 @@
        </size>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:32pt; font-weight:700;&quot;&gt;COURSE REGISTRATION&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:32pt; font-weight:700;&quot;&gt;SYSTEM&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:32pt; font-weight:700;&quot;&gt;SCHOOL MANAGER&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
     </item>
     <item row="2" column="1">
-     <widget class="QLabel" name="welcome_text">
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>48</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt; font-weight:700;&quot;&gt;Welcome back!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
-     <widget class="QPushButton" name="my_profile_button">
+     <widget class="QPushButton" name="classes_button">
       <property name="maximumSize">
        <size>
         <width>16777215</width>
@@ -110,47 +97,19 @@
        <cursorShape>PointingHandCursor</cursorShape>
       </property>
       <property name="styleSheet">
-       <string notr="true">#my_profile_button {
+       <string notr="true">#classes_button {
 	font-weight: bold;
 	font-size: 20pt;
 	background: qlineargradient(x: 0, y:0, x2: 0, y2: 1, stop: 0 #2E8B57, stop: 0.5 green, stop: 1 #2E8B57);
 	border-radius: 10%;
 }
 
-:hover#my_profile_button {
+:hover#classes_button {
 	border: 2px solid black;
 }</string>
       </property>
       <property name="text">
-       <string>MY PROFILE</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="1">
-     <widget class="QPushButton" name="courses_button">
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>64</height>
-       </size>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">#courses_button {
-	font-weight: bold;
-	font-size: 20pt;
-	background: qlineargradient(x: 0, y:0, x2: 0, y2: 1, stop: 0 #2E8B57, stop: 0.5 green, stop: 1 #2E8B57);
-	border-radius: 10%;
-}
-
-:hover#courses_button {
-	border: 2px solid black;
-}</string>
-      </property>
-      <property name="text">
-       <string>COURSES</string>
+       <string>CLASSES</string>
       </property>
      </widget>
     </item>

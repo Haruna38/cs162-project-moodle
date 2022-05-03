@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>staff</class>
- <widget class="QMainWindow" name="staff">
+ <class>student</class>
+ <widget class="QMainWindow" name="student">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -45,7 +45,7 @@
      <number>0</number>
     </property>
     <item row="4" column="1">
-     <widget class="QPushButton" name="school_button">
+     <widget class="QPushButton" name="enroll_course">
       <property name="maximumSize">
        <size>
         <width>16777215</width>
@@ -56,19 +56,19 @@
        <cursorShape>PointingHandCursor</cursorShape>
       </property>
       <property name="styleSheet">
-       <string notr="true">#school_button {
+       <string notr="true">#enroll_course {
 	font-weight: bold;
 	font-size: 20pt;
 	background: qlineargradient(x: 0, y:0, x2: 0, y2: 1, stop: 0 #2E8B57, stop: 0.5 green, stop: 1 #2E8B57);
 	border-radius: 10%;
 }
 
-:hover#school_button {
+:hover#enroll_course {
 	border: 2px solid black;
 }</string>
       </property>
       <property name="text">
-       <string>SCHOOL</string>
+       <string>ENROLL COURSE</string>
       </property>
      </widget>
     </item>
@@ -150,7 +150,35 @@
 }</string>
       </property>
       <property name="text">
-       <string>COURSES</string>
+       <string>MY COURSES</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QPushButton" name="view_score">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>64</height>
+       </size>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#view_score {
+	font-weight: bold;
+	font-size: 20pt;
+	background: qlineargradient(x: 0, y:0, x2: 0, y2: 1, stop: 0 #2E8B57, stop: 0.5 green, stop: 1 #2E8B57);
+	border-radius: 10%;
+}
+
+:hover#view_score {
+	border: 2px solid black;
+}</string>
+      </property>
+      <property name="text">
+       <string>VIEW SCORE</string>
       </property>
      </widget>
     </item>
